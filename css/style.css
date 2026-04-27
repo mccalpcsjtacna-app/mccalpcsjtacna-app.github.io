@@ -6,29 +6,33 @@
     --dark: #3E0909;
 }
 /*** Nav bar ***/
-/*** Estilo base para el título (Móviles primero) ***/
+
 .responsive-title {
+    line-height: 1.2;
+    color: white;
+}
+
+/* Ajuste fino del tamaño de la fuente */
+@media (max-width: 991.98px) {
+    .responsive-title {
+        font-size: 1.5rem !important; /* Las siglas pueden ser un poco más grandes */
+    }
+}
+
+@media (min-width: 992px) {
+    .responsive-title {
+        font-size: 1.1rem !important; /* El nombre largo necesita ser más pequeño para caber */
+    }
+}
+/*** Estilo base para el título (Móviles primero) ***/
+/*.responsive-title {
     font-size: 0.85rem !important; /* Achica la letra en celulares */
     line-height: 1.2;
     max-width: 220px;            /* Limita el ancho para que no empuje el borde */
     color: #ffffff;              /* Ajusta al color de tu diseño */
     display: block;
-}
+}*/
 
-/* Ajustes para pantallas medianas y grandes (Tablets/Laptops) */
-@media (min-width: 768px) {
-    .responsive-title {
-        font-size: 1rem !important;
-        max-width: 300px;
-    }
-}
-
-@media (min-width: 1200px) {
-    .responsive-title {
-        font-size: 1.2rem !important;
-        max-width: 400px;
-    }
-}
 
 /*** Corrección de Bootstrap para evitar desbordamiento horizontal ***/
 .navbar-brand {
