@@ -5,6 +5,38 @@
     --light: #FFEEEE;
     --dark: #3E0909;
 }
+/*** Nav bar ***/
+/*** Estilo base para el título (Móviles primero) ***/
+.responsive-title {
+    font-size: 0.85rem !important; /* Achica la letra en celulares */
+    line-height: 1.2;
+    max-width: 220px;            /* Limita el ancho para que no empuje el borde */
+    color: #ffffff;              /* Ajusta al color de tu diseño */
+    display: block;
+}
+
+/* Ajustes para pantallas medianas y grandes (Tablets/Laptops) */
+@media (min-width: 768px) {
+    .responsive-title {
+        font-size: 1rem !important;
+        max-width: 300px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .responsive-title {
+        font-size: 1.2rem !important;
+        max-width: 400px;
+    }
+}
+
+/*** Corrección de Bootstrap para evitar desbordamiento horizontal ***/
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    margin-right: 0; /*** Evita márgenes externos que empujen el contenido ***/
+}
+
 
 .data-item { display: none; margin-bottom: 3rem; animation: fadeIn 0.5s; }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
