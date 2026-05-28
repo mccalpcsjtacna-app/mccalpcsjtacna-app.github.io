@@ -627,6 +627,14 @@
 		
 		            if (isYear && isMonth && isCat) {
 		                item.style.display = "block";
+
+						const wowElements = item.querySelectorAll('.wow');
+		                wowElements.forEach(el => {
+		                    el.classList.remove('wow'); // Quitamos la clase para que no se oculte
+		                    el.style.visibility = 'visible'; // Forzamos que se vea
+		                    el.style.animationName = 'none'; // Evitamos conflictos de animación
+		                });
+						
 		            } else {
 		                item.style.display = "none";
 		            }
