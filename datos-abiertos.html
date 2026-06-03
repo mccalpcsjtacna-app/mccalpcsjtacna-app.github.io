@@ -143,338 +143,26 @@
 			materia, fecha de ingreso, hora de ingreso y más campos que permitiran a los lectores realizar búsquedas de información detallada del Módulo
 			Corporativo Contencioso Administrativo Laboral y Previsional.</p>
 					<p class="text-justify mb-4">Seleccione los criterios para visualizar los documentos del Módulo Corporativo.</p>
-                   	<div class="row g-3 mb-5 p-3 bg-light rounded shadow-sm">
+                    	<div class="row g-3 mb-5 p-3 bg-light rounded shadow-sm">
 	                    <div class="col-md-4">
 	                        <label class="form-label fw-bold">Año:</label>
-	                        <select id="filterYear" class="form-select">
-	                            <option value="2026">2026</option>
-	                            <option value="2025">2025</option>
-	                        </select>
+	                        <select id="filterYear" class="form-select"></select>
 	                    </div>
 	                    <div class="col-md-4">
 	                        <label class="form-label fw-bold">Mes:</label>
-	                        <select id="filterMonth" class="form-select">
-	                            <option value="Enero">Enero</option>
-	                            <option value="Febrero">Febrero</option>
-	                            <option value="Marzo">Marzo</option>
-								<option value="Abril">Abril</option>
-								<option value="Diciembre">Diciembre</option>
-	                            </select>
+	                        <select id="filterMonth" class="form-select"></select>
 	                    </div>
 	                    <div class="col-md-4">
 	                        <label class="form-label fw-bold">Categoría:</label>
-	                        <select id="filterCategory" class="form-select">
-	                            <option value="demandas">Demandas Ingresadas</option>
-	                            <option value="sentencias">Sentencias Realizadas</option>
-	                            <option value="tramite">Carga Trámite</option>
-	                        </select>
+	                        <select id="filterCategory" class="form-select"></select>
 	                    </div>
                 	</div>
-
-					<div id="resultsContainer">
-						<div class="data-item" data-year="2026" data-month="Abril" data-category="demandas">
-	                        <h2 class="mb-2">Demandas Ingresadas - Abril 2026</h2>
-	                        <p class="mb-4">Listado de datos por fecha de ingreso del 2° y 4° Juzgado de Trabajo.</p>
-	                        <div class="post d-flex align-items-center mb-4 wow fadeIn gap-3" data-wow-delay="0.1s">
-		                        <div class="d-flex align-items-center justify-content-center rounded">
-									<span><b>Descarga:</b></span>
-		                        </div>
-								<div class="d-flex align-items-center justify-content-center rounded" style="background-color:#eb1515;width: 45px; height: 55px;">
-		                            <a href="pdf/DEMANDA-PDF-4-2026.pdf" download="DEMANDA-PDF-4-2026.pdf"><i class="fa fa-file-pdf fa-lg text-white"></i></a>
-		                        </div>
-		                        <div class="d-flex align-items-center justify-content-center rounded" style="background-color:#499b25;width: 45px; height: 55px;">
-		                           <a href="pdf/DEMANDA-EXCEL-4-2026.xlsx" download="DEMANDA-EXCEL-4-2026.xlsx"><i class="fa fa-file-excel fa-lg text-white"></i></a>
-		                        </div>
-								<div class="d-flex align-items-center justify-content-center rounded" style="background-color:#256b9b;width: 45px; height: 55px;">
-		                            <a href="pdf/DEMANDA-CSV-4-2026.csv" download="DEMANDA-CSV-4-2026.csv"><i class="fa fa-file-csv fa-lg text-white"></i></a>
-		                        </div>
-                    		</div>
-                    	</div>
-                    	<div class="data-item" data-year="2026" data-month="Marzo" data-category="demandas">
-	                        <h2 class="mb-2">Demandas Ingresadas - Marzo 2026</h2>
-	                        <p class="mb-4">Listado de datos por fecha de ingreso del 2° y 4° Juzgado de Trabajo.</p>
-	                        <div class="post d-flex align-items-center mb-4 wow fadeIn gap-3" data-wow-delay="0.1s">
-		                        <div class="d-flex align-items-center justify-content-center rounded">
-									<span><b>Descarga:</b></span>
-		                        </div>
-								<div class="d-flex align-items-center justify-content-center rounded" style="background-color:#eb1515;width: 45px; height: 55px;">
-		                            <a href="pdf/DEMANDA-PDF-3-2026.pdf" download="DEMANDA-PDF-3-2026.pdf"><i class="fa fa-file-pdf fa-lg text-white"></i></a>
-		                        </div>
-		                        <div class="d-flex align-items-center justify-content-center rounded" style="background-color:#499b25;width: 45px; height: 55px;">
-		                           <a href="pdf/DEMANDA-EXCEL-3-2026.xlsx" download="DEMANDA-EXCEL-3-2026.xlsx"><i class="fa fa-file-excel fa-lg text-white"></i></a>
-		                        </div>
-								<div class="d-flex align-items-center justify-content-center rounded" style="background-color:#256b9b;width: 45px; height: 55px;">
-		                            <a href="pdf/DEMANDA-CSV-3-2026.csv" download="DEMANDA-CSV-3-2026.csv"><i class="fa fa-file-csv fa-lg text-white"></i></a>
-		                        </div>
-                    		</div>
-                    	</div>
-						<div class="data-item" data-year="2026" data-month="Febrero" data-category="demandas">
-	                        <h2 class="mb-2">Demandas Ingresadas - Febrero 2026</h2>
-	                        <p class="mb-4">Listado de datos por fecha de ingreso del 2° y 4° Juzgado de Trabajo.</p>
-	                        <div class="post d-flex align-items-center mb-4 wow fadeIn gap-3" data-wow-delay="0.1s">
-		                        <div class="d-flex align-items-center justify-content-center rounded">
-									<span><b>Descarga:</b></span>
-		                        </div>
-								<div class="d-flex align-items-center justify-content-center rounded" style="background-color:#eb1515;width: 45px; height: 55px;">
-		                            <a href="pdf/DEMANDA-PDF-2-2026.pdf" download="DEMANDA-PDF-2-2026.pdf"><i class="fa fa-file-pdf fa-lg text-white"></i></a>
-		                        </div>
-		                        <div class="d-flex align-items-center justify-content-center rounded" style="background-color:#499b25;width: 45px; height: 55px;">
-		                           <a href="pdf/DEMANDA-EXCEL-2-2026.xlsx" download="DEMANDA-EXCEL-2-2026.xlsx"><i class="fa fa-file-excel fa-lg text-white"></i></a>
-		                        </div>
-								<div class="d-flex align-items-center justify-content-center rounded" style="background-color:#256b9b;width: 45px; height: 55px;">
-		                            <a href="pdf/DEMANDA-CSV-2-2026.csv" download="DEMANDA-CSV-2-2026.csv"><i class="fa fa-file-csv fa-lg text-white"></i></a>
-		                        </div>
-                    		</div>
-                    	</div>
-						<div class="data-item" data-year="2026" data-month="Enero" data-category="demandas">
-	                        <h2 class="mb-2">Demandas Ingresadas - Enero 2026</h2>
-	                        <p class="mb-4">Listado de datos por fecha de ingreso del 2° y 4° Juzgado de Trabajo.</p>
-	                        <div class="post d-flex align-items-center mb-4 wow fadeIn gap-3" data-wow-delay="0.1s">
-		                        <div class="d-flex align-items-center justify-content-center rounded">
-									<span><b>Descarga:</b></span>
-		                        </div>
-								<div class="d-flex align-items-center justify-content-center rounded" style="background-color:#eb1515;width: 45px; height: 55px;">
-		                            <a href="pdf/DEMANDA-PDF-1-2026.pdf" download="DEMANDA-PDF-1-2026.pdf"><i class="fa fa-file-pdf fa-lg text-white"></i></a>
-		                        </div>
-		                        <div class="d-flex align-items-center justify-content-center rounded" style="background-color:#499b25;width: 45px; height: 55px;">
-		                           <a href="pdf/DEMANDA-EXCEL-1-2026.xlsx" download="DEMANDA-EXCEL-1-2026.xlsx"><i class="fa fa-file-excel fa-lg text-white"></i></a>
-		                        </div>
-								<div class="d-flex align-items-center justify-content-center rounded" style="background-color:#256b9b;width: 45px; height: 55px;">
-		                            <a href="pdf/DEMANDA-CSV-1-2026.csv" download="DEMANDA-CSV-1-2026.csv"><i class="fa fa-file-csv fa-lg text-white"></i></a>
-		                        </div>
-                    		</div>
-                    	</div>
-						<div class="data-item" data-year="2025" data-month="Diciembre" data-category="demandas">
-	                        <h2 class="mb-2">Demandas Ingresadas - Diciembre 2025</h2>
-	                        <p class="mb-4">Listado de datos por fecha de ingreso del 2° y 4° Juzgado de Trabajo.</p>
-	                        <div class="post d-flex align-items-center mb-4 wow fadeIn gap-3" data-wow-delay="0.1s">
-		                        <div class="d-flex align-items-center justify-content-center rounded">
-									<span><b>Descarga:</b></span>
-		                        </div>
-								<div class="d-flex align-items-center justify-content-center rounded" style="background-color:#eb1515;width: 45px; height: 55px;">
-		                            <a href="pdf/DEMANDA-PDF-12-2025.pdf" download="DEMANDA-PDF-12-2025.pdf><i class="fa fa-file-pdf fa-lg text-white"></i></a>
-		                        </div>
-		                        <div class="d-flex align-items-center justify-content-center rounded" style="background-color:#499b25;width: 45px; height: 55px;">
-		                           <a href="pdf/DEMANDA-EXCEL-12-2025.xlsx" download="DEMANDA-EXCEL-12-2025.xlsx"><i class="fa fa-file-excel fa-lg text-white"></i></a>
-		                        </div>
-								<div class="d-flex align-items-center justify-content-center rounded" style="background-color:#256b9b;width: 45px; height: 55px;">
-		                            <a href="pdf/DEMANDA-CSV-12-2025.csv" download="DEMANDA-CSV-12-2025.csv"><i class="fa fa-file-csv fa-lg text-white"></i></a>
-		                        </div>
-                    		</div>
-                    	</div>
-						<div class="data-item" data-year="2026" data-month="Abril" data-category="sentencias">
-	                        <h2 class="mb-2">Sentencias Realizadas - Abril 2026</h2>
-	                        <p class="mb-4">Listado de datos por fecha de ingreso del 2° y 4° Juzgado de Trabajo.</p>
-	                        <div class="post d-flex align-items-center mb-4 wow fadeIn gap-3" data-wow-delay="0.2s">
-		                        <div class="d-flex align-items-center justify-content-center rounded">
-									<span><b>Descarga:</b></span>
-		                        </div>
-								<div class="d-flex align-items-center justify-content-center rounded" style="background-color:#eb1515;width: 45px; height: 55px;">
-		                            <a href="pdf/SENTENCIA-PDF-4-2026.pdf" download="SENTENCIA-PDF-4-2026.pdf"><i class="fa fa-file-pdf fa-lg text-white"></i></a>
-		                        </div>
-		                        <div class="d-flex align-items-center justify-content-center rounded" style="background-color:#499b25;width: 45px; height: 55px;">
-		                           <a href="pdf/SENTENCIA-EXCEL-4-2026.xlsx" download="SENTENCIA-EXCEL-4-2026.xlsx"><i class="fa fa-file-excel fa-lg text-white"></i></a>
-		                        </div>
-								<div class="d-flex align-items-center justify-content-center rounded" style="background-color:#256b9b;width: 45px; height: 55px;">
-		                            <a href="pdf/SENTENCIA-CSV-4-2026.csv" download="SENTENCIA-CSV-4-2026.csv"><i class="fa fa-file-csv fa-lg text-white"></i></a>
-		                        </div>
-                    		</div>
-                    	</div>
-						<div class="data-item" data-year="2026" data-month="Marzo" data-category="sentencias">
-	                        <h2 class="mb-2">Sentencias Realizadas - Marzo 2026</h2>
-	                        <p class="mb-4">Listado de datos por fecha de ingreso del 2° y 4° Juzgado de Trabajo.</p>
-	                        <div class="post d-flex align-items-center mb-4 wow fadeIn gap-3" data-wow-delay="0.2s">
-		                        <div class="d-flex align-items-center justify-content-center rounded">
-									<span><b>Descarga:</b></span>
-		                        </div>
-								<div class="d-flex align-items-center justify-content-center rounded" style="background-color:#eb1515;width: 45px; height: 55px;">
-		                            <a href="pdf/SENTENCIA-PDF-3-2026.pdf" download="SENTENCIA-PDF-3-2026.pdf"><i class="fa fa-file-pdf fa-lg text-white"></i></a>
-		                        </div>
-		                        <div class="d-flex align-items-center justify-content-center rounded" style="background-color:#499b25;width: 45px; height: 55px;">
-		                           <a href="pdf/SENTENCIA-EXCEL-3-2026.xlsx" download="SENTENCIA-EXCEL-3-2026.xlsx"><i class="fa fa-file-excel fa-lg text-white"></i></a>
-		                        </div>
-								<div class="d-flex align-items-center justify-content-center rounded" style="background-color:#256b9b;width: 45px; height: 55px;">
-		                            <a href="pdf/SENTENCIA-CSV-3-2026.csv" download="SENTENCIA-CSV-3-2026.csv"><i class="fa fa-file-csv fa-lg text-white"></i></a>
-		                        </div>
-                    		</div>
-                    	</div>
-						<div class="data-item" data-year="2026" data-month="Febrero" data-category="sentencias">
-	                        <h2 class="mb-2">Sentencias Realizadas - Febrero 2026</h2>
-	                        <p class="mb-4">Listado de datos por fecha de ingreso del 2° y 4° Juzgado de Trabajo.</p>
-	                        <div class="post d-flex align-items-center mb-4 wow fadeIn gap-3" data-wow-delay="0.2s">
-		                        <div class="d-flex align-items-center justify-content-center rounded">
-									<span><b>Descarga:</b></span>
-		                        </div>
-								<div class="d-flex align-items-center justify-content-center rounded" style="background-color:#eb1515;width: 45px; height: 55px;">
-		                            <a href="pdf/SENTENCIA-PDF-2-2026.pdf" download="SENTENCIA-PDF-2-2026.pdf"><i class="fa fa-file-pdf fa-lg text-white"></i></a>
-		                        </div>
-		                        <div class="d-flex align-items-center justify-content-center rounded" style="background-color:#499b25;width: 45px; height: 55px;">
-		                           <a href="pdf/SENTENCIA-EXCEL-2-2026.xlsx" download="SENTENCIA-EXCEL-2-2026.xlsx"><i class="fa fa-file-excel fa-lg text-white"></i></a>
-		                        </div>
-								<div class="d-flex align-items-center justify-content-center rounded" style="background-color:#256b9b;width: 45px; height: 55px;">
-		                            <a href="pdf/SENTENCIA-CSV-2-2026.csv" download="SENTENCIA-CSV-2-2026.csv"><i class="fa fa-file-csv fa-lg text-white"></i></a>
-		                        </div>
-                    		</div>
-                    	</div>
-						<div class="data-item" data-year="2026" data-month="Enero" data-category="sentencias">
-	                        <h2 class="mb-2">Sentencias Realizadas - Enero 2026</h2>
-	                        <p class="mb-4">Listado de datos por fecha de ingreso del 2° y 4° Juzgado de Trabajo.</p>
-	                        <div class="post d-flex align-items-center mb-4 wow fadeIn gap-3" data-wow-delay="0.2s">
-		                        <div class="d-flex align-items-center justify-content-center rounded">
-									<span><b>Descarga:</b></span>
-		                        </div>
-								<div class="d-flex align-items-center justify-content-center rounded" style="background-color:#eb1515;width: 45px; height: 55px;">
-		                            <a href="pdf/SENTENCIA-PDF-1-2026.pdf" download="SENTENCIA-PDF-1-2026.pdf"><i class="fa fa-file-pdf fa-lg text-white"></i></a>
-		                        </div>
-		                        <div class="d-flex align-items-center justify-content-center rounded" style="background-color:#499b25;width: 45px; height: 55px;">
-		                           <a href="pdf/SENTENCIA-EXCEL-1-2026.xlsx" download="SENTENCIA-EXCEL-1-2026.xlsx"><i class="fa fa-file-excel fa-lg text-white"></i></a>
-		                        </div>
-								<div class="d-flex align-items-center justify-content-center rounded" style="background-color:#256b9b;width: 45px; height: 55px;">
-		                            <a href="pdf/SENTENCIA-CSV-1-2026.csv" download="SENTENCIA-CSV-1-2026.csv"><i class="fa fa-file-csv fa-lg text-white"></i></a>
-		                        </div>
-                    		</div>
-                    	</div>
-						<div class="data-item" data-year="2025" data-month="Diciembre" data-category="sentencias">
-	                        <h2 class="mb-2">Sentencias Realizadas - Diciembre 2025</h2>
-	                        <p class="mb-4">Listado de datos por fecha de ingreso del 2° y 4° Juzgado de Trabajo.</p>
-	                        <div class="post d-flex align-items-center mb-4 wow fadeIn gap-3" data-wow-delay="0.2s">
-		                        <div class="d-flex align-items-center justify-content-center rounded">
-									<span><b>Descarga:</b></span>
-		                        </div>
-								<div class="d-flex align-items-center justify-content-center rounded" style="background-color:#eb1515;width: 45px; height: 55px;">
-		                            <a href="pdf/SENTENCIA-PDF-12-2025.pdf" download="SENTENCIA-PDF-12-2025.pdf"><i class="fa fa-file-pdf fa-lg text-white"></i></a>
-		                        </div>
-		                        <div class="d-flex align-items-center justify-content-center rounded" style="background-color:#499b25;width: 45px; height: 55px;">
-		                           <a href="pdf/SENTENCIA-EXCEL-12-2025.xlsx" download="SENTENCIA-EXCEL-12-2025.xlsx"><i class="fa fa-file-excel fa-lg text-white"></i></a>
-		                        </div>
-								<div class="d-flex align-items-center justify-content-center rounded" style="background-color:#256b9b;width: 45px; height: 55px;">
-		                            <a href="pdf/SENTENCIA-CSV-12-2025.csv" download="SENTENCIA-CSV-12-2025.csv"><i class="fa fa-file-csv fa-lg text-white"></i></a>
-		                        </div>
-                    		</div>
-                    	</div>
-						<div class="data-item" data-year="2026" data-month="Abril" data-category="tramite">
-	                        <h2 class="mb-2">Carga Procesal (Trámite) - Abril 2026</h2>
-	                        <p class="mb-4">Listado de datos por fecha de ingreso del 2° y 4° Juzgado de Trabajo.</p>
-	                        <div class="post d-flex align-items-center mb-4 wow fadeIn gap-3" data-wow-delay="0.2s">
-		                        <div class="d-flex align-items-center justify-content-center rounded">
-									<span><b>Descarga:</b></span>
-		                        </div>
-								<div class="d-flex align-items-center justify-content-center rounded" style="background-color:#eb1515;width: 45px; height: 55px;">
-		                            <a href="pdf/TRAMITE-PDF-4-2026.pdf" download="TRAMITE-PDF-4-2026.pdf"><i class="fa fa-file-pdf fa-lg text-white"></i></a>
-		                        </div>
-		                        <div class="d-flex align-items-center justify-content-center rounded" style="background-color:#499b25;width: 45px; height: 55px;">
-		                           <a href="pdf/TRAMITE-EXCEL-4-2026.xlsx" download="TRAMITE-EXCEL-4-2026.xlsx"><i class="fa fa-file-excel fa-lg text-white"></i></a>
-		                        </div>
-								<div class="d-flex align-items-center justify-content-center rounded" style="background-color:#256b9b;width: 45px; height: 55px;">
-		                            <a href="pdf/TRAMITE-CSV-4-2026.csv" download="TRAMITE-CSV-4-2026.csv"><i class="fa fa-file-csv fa-lg text-white"></i></a>
-		                        </div>
-                    		</div>
-                    	</div>
-						<div class="data-item" data-year="2026" data-month="Marzo" data-category="tramite">
-	                        <h2 class="mb-2">Carga Procesal (Trámite) - Marzo 2026</h2>
-	                        <p class="mb-4">Listado de datos por fecha de ingreso del 2° y 4° Juzgado de Trabajo.</p>
-	                        <div class="post d-flex align-items-center mb-4 wow fadeIn gap-3" data-wow-delay="0.2s">
-		                        <div class="d-flex align-items-center justify-content-center rounded">
-									<span><b>Descarga:</b></span>
-		                        </div>
-								<div class="d-flex align-items-center justify-content-center rounded" style="background-color:#eb1515;width: 45px; height: 55px;">
-		                            <a href="pdf/TRAMITE-PDF-3-2026.pdf" download="TRAMITE-PDF-3-2026.pdf"><i class="fa fa-file-pdf fa-lg text-white"></i></a>
-		                        </div>
-		                        <div class="d-flex align-items-center justify-content-center rounded" style="background-color:#499b25;width: 45px; height: 55px;">
-		                           <a href="pdf/TRAMITE-EXCEL-3-2026.xlsx" download="TRAMITE-EXCEL-3-2026.xlsx"><i class="fa fa-file-excel fa-lg text-white"></i></a>
-		                        </div>
-								<div class="d-flex align-items-center justify-content-center rounded" style="background-color:#256b9b;width: 45px; height: 55px;">
-		                            <a href="pdf/TRAMITE-CSV-3-2026.csv" download="TRAMITE-CSV-3-2026.csv"><i class="fa fa-file-csv fa-lg text-white"></i></a>
-		                        </div>
-                    		</div>
-                    	</div>
-						<div class="data-item" data-year="2026" data-month="Febrero" data-category="tramite">
-	                        <h2 class="mb-2">Carga Procesal (Trámite) - Febrero 2026</h2>
-	                        <p class="mb-4">Listado de datos por fecha de ingreso del 2° y 4° Juzgado de Trabajo.</p>
-	                        <div class="post d-flex align-items-center mb-4 wow fadeIn gap-3" data-wow-delay="0.2s">
-		                        <div class="d-flex align-items-center justify-content-center rounded">
-									<span><b>Descarga:</b></span>
-		                        </div>
-								<div class="d-flex align-items-center justify-content-center rounded" style="background-color:#eb1515;width: 45px; height: 55px;">
-		                            <a href="pdf/TRAMITE-PDF-2-2026.pdf" download="TRAMITE-PDF-2-2026.pdf"><i class="fa fa-file-pdf fa-lg text-white"></i></a>
-		                        </div>
-		                        <div class="d-flex align-items-center justify-content-center rounded" style="background-color:#499b25;width: 45px; height: 55px;">
-		                           <a href="pdf/TRAMITE-EXCEL-2-2026.xlsx" download="TRAMITE-EXCEL-2-2026.xlsx"><i class="fa fa-file-excel fa-lg text-white"></i></a>
-		                        </div>
-								<div class="d-flex align-items-center justify-content-center rounded" style="background-color:#256b9b;width: 45px; height: 55px;">
-		                            <a href="pdf/TRAMITE-CSV-2-2026.csv" download="TRAMITE-CSV-2-2026.csv"><i class="fa fa-file-csv fa-lg text-white"></i></a>
-		                        </div>
-                    		</div>
-                    	</div>
-						<div class="data-item" data-year="2026" data-month="Enero" data-category="tramite">
-	                        <h2 class="mb-2">Carga Procesal (Trámite) - Enero 2026</h2>
-	                        <p class="mb-4">Listado de datos por fecha de ingreso del 2° y 4° Juzgado de Trabajo.</p>
-	                        <div class="post d-flex align-items-center mb-4 wow fadeIn gap-3" data-wow-delay="0.2s">
-		                        <div class="d-flex align-items-center justify-content-center rounded">
-									<span><b>Descarga:</b></span>
-		                        </div>
-								<div class="d-flex align-items-center justify-content-center rounded" style="background-color:#eb1515;width: 45px; height: 55px;">
-		                            <a href="pdf/TRAMITE-PDF-1-2026.pdf" download="TRAMITE-PDF-1-2026.pdf"><i class="fa fa-file-pdf fa-lg text-white"></i></a>
-		                        </div>
-		                        <div class="d-flex align-items-center justify-content-center rounded" style="background-color:#499b25;width: 45px; height: 55px;">
-		                           <a href="pdf/TRAMITE-EXCEL-1-2026.xlsx" download="TRAMITE-EXCEL-1-2026.xlsx"><i class="fa fa-file-excel fa-lg text-white"></i></a>
-		                        </div>
-								<div class="d-flex align-items-center justify-content-center rounded" style="background-color:#256b9b;width: 45px; height: 55px;">
-		                            <a href="pdf/TRAMITE-CSV-1-2026.csv" download="TRAMITE-CSV-1-2026.csv"><i class="fa fa-file-csv fa-lg text-white"></i></a>
-		                        </div>
-                    		</div>
-                    	</div>
-						<div class="data-item" data-year="2025" data-month="Diciembre" data-category="tramite">
-	                        <h2 class="mb-2">Carga Procesal (Trámite) - Diciembre 2025</h2>
-	                        <p class="mb-4">Listado de datos por fecha de ingreso del 2° y 4° Juzgado de Trabajo.</p>
-	                        <div class="post d-flex align-items-center mb-4 wow fadeIn gap-3" data-wow-delay="0.2s">
-		                        <div class="d-flex align-items-center justify-content-center rounded">
-									<span><b>Descarga:</b></span>
-		                        </div>
-								<div class="d-flex align-items-center justify-content-center rounded" style="background-color:#eb1515;width: 45px; height: 55px;">
-		                            <a href="pdf/TRAMITE-PDF-12-2025.pdf" download="TRAMITE-PDF-12-2025.pdf"><i class="fa fa-file-pdf fa-lg text-white"></i></a>
-		                        </div>
-		                        <div class="d-flex align-items-center justify-content-center rounded" style="background-color:#499b25;width: 45px; height: 55px;">
-		                           <a href="pdf/TRAMITE-EXCEL-12-2025.xlsx" download="TRAMITE-EXCEL-12-2025.xlsx"><i class="fa fa-file-excel fa-lg text-white"></i></a>
-		                        </div>
-								<div class="d-flex align-items-center justify-content-center rounded" style="background-color:#256b9b;width: 45px; height: 55px;">
-		                            <a href="pdf/TRAMITE-CSV-12-2025.csv" download="TRAMITE-CSV-12-2025.csv"><i class="fa fa-file-csv fa-lg text-white"></i></a>
-		                        </div>
-                    		</div>
-                    	</div>
-                    </div>
-
-					<!-- Codigo Inicial
-                    <div class="section-title position-relative pb-3 mb-3" >
-                        <h5 class="fw-bold text-primary text-uppercase">Periodo 2026</h5>
-                    </div>
-					
-					<h1 class="mb-2">Demandas Ingresadas - Marzo</h1>
-                    <p class="mb-4">Listado de datos por fecha de ingreso al 2° y 4° Juzgado de Trabajo del MCCALP.</p>
-                    <div class="post d-flex align-items-center mb-4 wow fadeIn gap-3" data-wow-delay="0.6s">
-                        <div class="d-flex align-items-center justify-content-center rounded">
-							<span><b>Descarga:</b></span>
-                        </div>
-						<div class="d-flex align-items-center justify-content-center rounded" style="background-color:#eb1515;width: 45px; height: 55px;">
-                            <a href="#"><i class="fa fa-file-pdf fa-lg text-white"></i></a>
-                        </div>
-                        <div class="d-flex align-items-center justify-content-center rounded" style="background-color:#499b25;width: 45px; height: 55px;">
-                           <a href="#"><i class="fa fa-file-excel fa-lg text-white"></i></a>
-                        </div>
-						<div class="d-flex align-items-center justify-content-center rounded" style="background-color:#256b9b;width: 45px; height: 55px;">
-                            <a href="#"><i class="fa fa-file-csv fa-lg text-white"></i></a>
-                        </div>
-                    </div>
-					-->
+					<div id="resultsContainer"></div>
                 </div>
 				<div class="col-lg-5">
 					<div class="bg-light p-4 rounded shadow-sm">
 						<h4 class="mb-4 border-bottom pb-2">Categorías</h4>
-						<ul class="list-unstyled">
-							<li class="mb-2"><a href="javascript:void(0)" onclick="setCategory('demandas')" class="text-primary"><i class="fa fa-arrow-right me-2"></i>Demandas Ingresadas</a></li>
-							<li class="mb-2"><a href="javascript:void(0)" onclick="setCategory('sentencias')" class="text-primary"><i class="fa fa-arrow-right me-2"></i>Sentencias Realizadas</a></li>
-							<li><a href="javascript:void(0)" onclick="setCategory('tramite')" class="text-primary"><i class="fa fa-arrow-right me-2"></i>Carga Trámite</a></li>
-						</ul>
+						<ul class="list-unstyled" id="categoryList"></ul>
 					</div>
 				</div>
             </div>
@@ -609,52 +297,159 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 	
 	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-		    const yearSelect = document.getElementById('filterYear');
-		    const monthSelect = document.getElementById('filterMonth');
-		    const categorySelect = document.getElementById('filterCategory');
-		    const items = document.querySelectorAll('.data-item');
-		
-		    function filterContent() {
-		        const selectedYear = yearSelect.value;
-		        const selectedMonth = monthSelect.value;
-		        const selectedCat = categorySelect.value;
-		
-		        items.forEach(item => {
-		            const isYear = item.getAttribute('data-year') === selectedYear;
-		            const isMonth = item.getAttribute('data-month') === selectedMonth;
-		            const isCat = item.getAttribute('data-category') === selectedCat;
-		
-		            if (isYear && isMonth && isCat) {
-		                item.style.display = "block";
+		var files = [
+			{f:"DEMANDA",t:"pdf",n:12,y:2025},{f:"DEMANDA",t:"xlsx",n:12,y:2025},{f:"DEMANDA",t:"csv",n:12,y:2025},
+			{f:"DEMANDA",t:"pdf",n:1,y:2026},{f:"DEMANDA",t:"xlsx",n:1,y:2026},{f:"DEMANDA",t:"csv",n:1,y:2026},
+			{f:"DEMANDA",t:"pdf",n:2,y:2026},{f:"DEMANDA",t:"xlsx",n:2,y:2026},{f:"DEMANDA",t:"csv",n:2,y:2026},
+			{f:"DEMANDA",t:"pdf",n:3,y:2026},{f:"DEMANDA",t:"xlsx",n:3,y:2026},{f:"DEMANDA",t:"csv",n:3,y:2026},
+			{f:"DEMANDA",t:"pdf",n:4,y:2026},{f:"DEMANDA",t:"xlsx",n:4,y:2026},{f:"DEMANDA",t:"csv",n:4,y:2026},
+			{f:"SENTENCIA",t:"pdf",n:12,y:2025},{f:"SENTENCIA",t:"xlsx",n:12,y:2025},{f:"SENTENCIA",t:"csv",n:12,y:2025},
+			{f:"SENTENCIA",t:"pdf",n:1,y:2026},{f:"SENTENCIA",t:"xlsx",n:1,y:2026},{f:"SENTENCIA",t:"csv",n:1,y:2026},
+			{f:"SENTENCIA",t:"pdf",n:2,y:2026},{f:"SENTENCIA",t:"xlsx",n:2,y:2026},{f:"SENTENCIA",t:"csv",n:2,y:2026},
+			{f:"SENTENCIA",t:"pdf",n:3,y:2026},{f:"SENTENCIA",t:"xlsx",n:3,y:2026},{f:"SENTENCIA",t:"csv",n:3,y:2026},
+			{f:"SENTENCIA",t:"pdf",n:4,y:2026},{f:"SENTENCIA",t:"xlsx",n:4,y:2026},{f:"SENTENCIA",t:"csv",n:4,y:2026},
+			{f:"TRAMITE",t:"pdf",n:12,y:2025},{f:"TRAMITE",t:"xlsx",n:12,y:2025},{f:"TRAMITE",t:"csv",n:12,y:2025},
+			{f:"TRAMITE",t:"pdf",n:1,y:2026},{f:"TRAMITE",t:"xlsx",n:1,y:2026},{f:"TRAMITE",t:"csv",n:1,y:2026},
+			{f:"TRAMITE",t:"pdf",n:2,y:2026},{f:"TRAMITE",t:"xlsx",n:2,y:2026},{f:"TRAMITE",t:"csv",n:2,y:2026},
+			{f:"TRAMITE",t:"pdf",n:3,y:2026},{f:"TRAMITE",t:"xlsx",n:3,y:2026},{f:"TRAMITE",t:"csv",n:3,y:2026},
+			{f:"TRAMITE",t:"pdf",n:4,y:2026},{f:"TRAMITE",t:"xlsx",n:4,y:2026},{f:"TRAMITE",t:"csv",n:4,y:2026}
+		];
 
-						const wowElements = item.querySelectorAll('.wow');
-		                wowElements.forEach(el => {
-		                    el.classList.remove('wow'); // Quitamos la clase para que no se oculte
-		                    el.style.visibility = 'visible'; // Forzamos que se vea
-		                    el.style.animationName = 'none'; // Evitamos conflictos de animación
-		                });
-						
-		            } else {
-		                item.style.display = "none";
-		            }
-		        });
-		    }
-		
-		    // Escuchar cambios en los combos
-		    yearSelect.addEventListener('change', filterContent);
-		    monthSelect.addEventListener('change', filterContent);
-		    categorySelect.addEventListener('change', filterContent);
-		
-		    // Función para el menú lateral
-		    window.setCategory = function(cat) {
-		        categorySelect.value = cat;
-		        filterContent();
-		    }
-		
-		    // Ejecutar filtro inicial
-		    filterContent();
+		var monthNames = {1:"Enero",2:"Febrero",3:"Marzo",4:"Abril",5:"Mayo",6:"Junio",7:"Julio",8:"Agosto",9:"Setiembre",10:"Octubre",11:"Noviembre",12:"Diciembre"};
+		var categoryNames = {DEMANDA:"Demandas",SENTENCIA:"Sentencias",TRAMITE:"Trámite"};
+		var formatLabel = {pdf:"PDF",xlsx:"Excel",csv:"CSV"};
+		var formatColor = {pdf:"danger",xlsx:"success",csv:"info"};
+		var formatIcon = {pdf:"bi-file-pdf",xlsx:"bi-file-earmark-excel",csv:"bi-file-earmark-spreadsheet"};
+
+		var yearSelect = document.getElementById('filterYear');
+		var monthSelect = document.getElementById('filterMonth');
+		var catSelect = document.getElementById('filterCategory');
+
+		function getMonthsForYear(year) {
+			var m = {};
+			files.forEach(function(f) {
+				if (year && f.y != parseInt(year)) return;
+				m[f.n] = 1;
+			});
+			return Object.keys(m).map(Number).sort(function(a,b){return a-b});
+		}
+
+		function getCatsForYearMonth(year, month) {
+			var c = {};
+			files.forEach(function(f) {
+				if (year && f.y != parseInt(year)) return;
+				if (month && f.n != parseInt(month)) return;
+				c[f.f] = 1;
+			});
+			return Object.keys(c).sort();
+		}
+
+		function populateYearFilter() {
+			var y = {};
+			files.forEach(function(f) { y[f.y] = 1; });
+			var html = '<option value="">Todos los años</option>';
+			Object.keys(y).sort().forEach(function(v) { html += '<option value="'+v+'">'+v+'</option>'; });
+			yearSelect.innerHTML = html;
+		}
+
+		function updateMonthFilter(keepValue) {
+			var year = yearSelect.value;
+			var months = getMonthsForYear(year);
+			var html = '<option value="">Todos los meses</option>';
+			months.forEach(function(m) { html += '<option value="'+m+'">'+monthNames[m]+'</option>'; });
+			monthSelect.innerHTML = html;
+			if (keepValue && months.indexOf(parseInt(keepValue)) !== -1) monthSelect.value = keepValue;
+		}
+
+		function updateCategoryFilter(keepValue) {
+			var year = yearSelect.value;
+			var month = monthSelect.value;
+			var cats = getCatsForYearMonth(year, month);
+			var html = '<option value="">Todas las categorías</option>';
+			cats.forEach(function(c) { html += '<option value="'+c+'">'+categoryNames[c]+'</option>'; });
+			catSelect.innerHTML = html;
+			if (keepValue && cats.indexOf(keepValue) !== -1) catSelect.value = keepValue;
+
+			var sideHtml = '';
+			cats.forEach(function(c) {
+				sideHtml += '<li class="mb-2"><a href="#" onclick="setCategory(\''+c+'\');return false;" class="text-decoration-none"><i class="bi bi-folder2-open text-primary me-2"></i>'+categoryNames[c]+'</a></li>';
+			});
+			document.getElementById('categoryList').innerHTML = sideHtml;
+		}
+
+		function groupFiles(year, month) {
+			var groups = {};
+			var filtered = files;
+			if (year) filtered = filtered.filter(function(f){return f.y==parseInt(year);});
+			if (month) filtered = filtered.filter(function(f){return f.n==parseInt(month);});
+			filtered.forEach(function(f) {
+				var key = f.f+'-'+f.n+'-'+f.y;
+				if (!groups[key]) groups[key] = {cat:f.f,month:f.n,year:f.y,formats:{}};
+				groups[key].formats[f.t] = 1;
+			});
+			var sorted = Object.keys(groups).sort().map(function(k){return groups[k];});
+			sorted.sort(function(a,b){return a.cat.localeCompare(b.cat) || a.month-b.month || a.year-b.year;});
+			return sorted;
+		}
+
+		function renderResults() {
+			var year = yearSelect.value;
+			var month = monthSelect.value;
+			var cat = document.getElementById('filterCategory').value;
+			var container = document.getElementById('resultsContainer');
+			var groups = groupFiles(year, month);
+
+			if (cat) groups = groups.filter(function(g){return g.cat==cat;});
+
+			if (groups.length===0) {
+				container.innerHTML = '<div class="alert alert-warning text-center">No se encontraron documentos con los filtros seleccionados.</div>';
+				return;
+			}
+
+			var html = '<div class="row">';
+			groups.forEach(function(g) {
+				var hasPdf = g.formats.pdf ? true : false;
+				var hasXlsx = g.formats.xlsx ? true : false;
+				var hasCsv = g.formats.csv ? true : false;
+				html += '<div class="col-md-6 mb-3">'+
+					'<div class="card border-0 shadow-sm h-100">'+
+					'<div class="card-body">'+
+					'<h6 class="card-title mb-3">'+categoryNames[g.cat]+' — '+monthNames[g.month]+' '+g.year+'</h6>'+
+					'<div class="d-flex gap-2 flex-wrap">';
+				if (hasPdf) html += '<a href="pdf/'+g.cat+'-pdf-'+g.month+'-'+g.year+'.pdf" class="btn btn-outline-'+formatColor.pdf+' btn-sm rounded-pill" download><i class="bi '+formatIcon.pdf+' me-1"></i>PDF</a>';
+				if (hasXlsx) html += '<a href="pdf/'+g.cat+'-excel-'+g.month+'-'+g.year+'.xlsx" class="btn btn-outline-'+formatColor.xlsx+' btn-sm rounded-pill" download><i class="bi '+formatIcon.xlsx+' me-1"></i>Excel</a>';
+				if (hasCsv) html += '<a href="pdf/'+g.cat+'-csv-'+g.month+'-'+g.year+'.csv" class="btn btn-outline-'+formatColor.csv+' btn-sm rounded-pill" download><i class="bi '+formatIcon.csv+' me-1"></i>CSV</a>';
+				html += '</div></div></div></div>';
+			});
+			html += '</div>';
+			container.innerHTML = html;
+		}
+
+		function onChange() {
+			updateMonthFilter(monthSelect.value);
+			updateCategoryFilter(catSelect.value);
+			renderResults();
+		}
+
+		function onMonthChange() {
+			updateCategoryFilter(catSelect.value);
+			renderResults();
+		}
+
+		document.addEventListener("DOMContentLoaded",function() {
+			populateYearFilter();
+			updateMonthFilter();
+			updateCategoryFilter();
+			renderResults();
+			yearSelect.addEventListener('change', onChange);
+			monthSelect.addEventListener('change', onMonthChange);
+			catSelect.addEventListener('change', renderResults);
 		});
+
+		window.setCategory = function(cat) {
+			catSelect.value = cat;
+			renderResults();
+		}
 	</script>
 	
     <!-- Template Javascript -->
