@@ -49,10 +49,10 @@
         <div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px;">
             <div class="row py-5">
                 <div class="col-12 pt-lg-5 mt-lg-5 text-center">
-                    <h1 class="display-4 text-white animated zoomIn">Podcast</h1>
+                    <h1 class="display-4 text-white animated zoomIn">Recursos Multimedia</h1>
                     <a href="index.html" class="h5 text-white">Inicio</a>
                     <i class="far fa-circle text-white px-2"></i>
-                    <a href="#" class="h5 text-white">Videoteca</a>
+                    <a href="#" class="h5 text-white">Multimedia</a>
                 </div>
             </div>
         </div>
@@ -63,15 +63,17 @@
     <div data-include="components/search-modal.html"></div>
 
 
-    <!-- Podcast Start -->
+    <!-- Multimedia Start -->
     <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="section-title text-center position-relative pb-3 mb-4 mx-auto" style="max-width: 600px;">
-                <h5 class="fw-bold text-primary text-uppercase">Videoteca</h5>
-                <h1 class="mb-0">Videos del MCCALP</h1>
+                <h5 class="fw-bold text-primary text-uppercase">Recursos Multimedia</h5>
+                <h1 class="mb-0">Contenido del MCCALP</h1>
             </div>
-            <div class="row justify-content-center mb-5">
-                <div class="col-lg-6 col-md-8 col-sm-12">
+            <div class="row justify-content-center mb-4">
+                <div class="col-lg-8 col-md-10 col-sm-12">
+                    <div class="d-flex flex-wrap justify-content-center gap-2 mb-3" id="filterButtons">
+                    </div>
                     <div class="input-group">
                         <span class="input-group-text bg-primary text-white border-0"><i class="fa fa-search"></i></span>
                         <input type="text" id="searchInput" class="form-control form-control-lg border-primary" placeholder="Buscar por título o descripción..." onkeyup="filterVideos()">
@@ -82,7 +84,7 @@
             </div>
         </div>
     </div>
-    <!-- Podcast End -->
+    <!-- Multimedia End -->
 
     <!-- Video Modal -->
     <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
@@ -178,6 +180,7 @@
 
     <script>
         var allVideos = [];
+        var activeFilter = 'all';
 
         function getGoogleDriveEmbedUrl(url) {
             var match = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
@@ -205,12 +208,30 @@
             document.getElementById('videoModalIframe').src = '';
         }
 
+        function setFilter(tipo) {
+            activeFilter = tipo;
+            var btns = document.querySelectorAll('#filterButtons .btn');
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].classList.remove('btn-primary');
+                btns[i].classList.add('btn-outline-primary');
+            }
+            var activeBtn = document.querySelector('#filterButtons .btn[data-tipo="' + tipo + '"]');
+            if (activeBtn) {
+                activeBtn.classList.remove('btn-outline-primary');
+                activeBtn.classList.add('btn-primary');
+            }
+            filterVideos();
+        }
+
         function filterVideos() {
             var query = document.getElementById('searchInput').value.toLowerCase();
             var cards = document.querySelectorAll('.video-col');
             for (var i = 0; i < cards.length; i++) {
                 var text = cards[i].getAttribute('data-search').toLowerCase();
-                cards[i].style.display = text.indexOf(query) > -1 ? '' : 'none';
+                var tipo = cards[i].getAttribute('data-tipo');
+                var matchTipo = activeFilter === 'all' || tipo === activeFilter;
+                var matchQuery = text.indexOf(query) > -1;
+                cards[i].style.display = matchTipo && matchQuery ? '' : 'none';
             }
         }
 
@@ -222,7 +243,9 @@
                 var thumb = getGoogleDriveThumbnail(v.url);
                 var col = document.createElement('div');
                 col.className = 'col-lg-6 col-md-6 col-sm-12 mb-4 video-col';
-                col.setAttribute('data-search', v.title + ' ' + v.description);
+                col.setAttribute('data-search', v.title + ' ' + v.description + ' ' + v.tipo);
+                col.setAttribute('data-tipo', v.tipo);
+                var tipoLabel = v.tipo.charAt(0).toUpperCase() + v.tipo.slice(1);
                 col.innerHTML =
                     '<div class="bg-light rounded video-card h-100" onclick="openVideo(\'' + v.url.replace(/'/g, "\\'") + '\', \'' + v.title.replace(/'/g, "\\'") + '\')">' +
                         '<div class="video-thumb-wrap">' +
@@ -234,7 +257,10 @@
                         '<div class="card-body">' +
                             '<h5 class="text-primary mb-1">' + v.title + '</h5>' +
                             '<p class="mb-1 text-muted">' + v.description + '</p>' +
-                            '<small class="text-muted"><i class="fa fa-calendar me-1"></i>' + v.date + '</small>' +
+                            '<div class="d-flex justify-content-between align-items-center">' +
+                                '<small class="text-muted"><i class="fa fa-calendar me-1"></i>' + v.date + '</small>' +
+                                '<span class="badge bg-primary">' + tipoLabel + '</span>' +
+                            '</div>' +
                         '</div>' +
                     '</div>';
                 container.appendChild(col);
@@ -242,24 +268,35 @@
         }
 
         function loadVideos() {
-            fetch('assets/podcast.csv')
+            fetch('assets/multimedia.csv')
                 .then(function(response) { return response.text(); })
                 .then(function(data) {
                     var lines = data.trim().split('\n');
+                    var tipos = {};
                     for (var i = 1; i < lines.length; i++) {
                         var cols = lines[i].split(',');
-                        if (cols.length >= 4) {
+                        if (cols.length >= 5) {
+                            var tipo = cols[4].trim().toLowerCase();
                             allVideos.push({
                                 url: cols[0].trim(),
                                 title: cols[1].trim(),
                                 description: cols[2].trim(),
-                                date: cols[3].trim()
+                                date: cols[3].trim(),
+                                tipo: tipo
                             });
+                            tipos[tipo] = true;
                         }
                     }
                     allVideos.sort(function(a, b) {
                         return parseDate(b.date) - parseDate(a.date);
                     });
+                    var filterContainer = document.getElementById('filterButtons');
+                    filterContainer.innerHTML = '<button class="btn btn-primary btn-sm" data-tipo="all" onclick="setFilter(\'all\')">Todos</button>';
+                    var tipoKeys = Object.keys(tipos).sort();
+                    for (var k = 0; k < tipoKeys.length; k++) {
+                        var label = tipoKeys[k].charAt(0).toUpperCase() + tipoKeys[k].slice(1);
+                        filterContainer.innerHTML += '<button class="btn btn-outline-primary btn-sm" data-tipo="' + tipoKeys[k] + '" onclick="setFilter(\'' + tipoKeys[k] + '\')">' + label + '</button>';
+                    }
                     renderVideos(allVideos);
                 });
         }
