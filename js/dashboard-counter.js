@@ -38,26 +38,23 @@
     }
 
     function loadCounters() {
-        var script = document.createElement('script');
-        script.src = 'https://www.gstatic.com/charts/loader.js';
-        script.onload = function() {
-            google.charts.load('current', { packages: ['corechart'] });
-            google.charts.setOnLoadCallback(function() {
-                var query = new google.visualization.Query(
-                    'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/gviz/tq?sheet=' + SHEET_NAME
-                );
-                query.setQuery('SELECT A, SUM(P) GROUP BY A');
-                query.send(function(response) {
-                    if (response.isError()) return;
-                    var dt = response.getDataTable();
-                    var sums = {};
-                    for (var row = 0; row < dt.getNumberOfRows(); row++) {
-                        sums[dt.getValue(row, 0)] = dt.getValue(row, 1);
+        var callbackName = '_gviz_cb_' + Math.floor(Math.random() * 100000);
+        window[callbackName] = function(response) {
+            if (response.status === 'ok' && response.table) {
+                var rows = response.table.rows;
+                var sums = {};
+                for (var i = 0; i < rows.length; i++) {
+                    var row = rows[i];
+                    if (row.c && row.c[0] && row.c[0].v !== null) {
+                        sums[row.c[0].v] = row.c[1].v;
                     }
-                    updateCounters(sums);
-                });
-            });
+                }
+                updateCounters(sums);
+            }
+            delete window[callbackName];
         };
+        var script = document.createElement('script');
+        script.src = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/gviz/tq?tqx=responseHandler:' + callbackName + '&sheet=' + SHEET_NAME + '&tq=' + encodeURIComponent('SELECT A, SUM(P) GROUP BY A LIMIT 200');
         document.head.appendChild(script);
     }
 
