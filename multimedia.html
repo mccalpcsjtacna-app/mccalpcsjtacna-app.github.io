@@ -122,59 +122,100 @@
     <script src="js/include.js"></script>
 
     <style>
-        .video-card {
+        .ig-card {
             cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: #fff;
+            border: 1px solid #dbdbdb;
+            border-radius: 12px;
             overflow: hidden;
+            transition: box-shadow 0.2s ease;
         }
-        .video-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        .ig-card:hover {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
-        .video-thumb-wrap {
+        .ig-thumb-wrap {
             position: relative;
             background: #000;
             overflow: hidden;
+            aspect-ratio: 1 / 1;
         }
-        .video-thumb-wrap img {
+        .ig-thumb-wrap img {
             width: 100%;
-            height: 200px;
+            height: 100%;
             object-fit: cover;
-            transition: transform 0.4s ease;
+            transition: transform 0.3s ease;
         }
-        .video-card:hover .video-thumb-wrap img {
-            transform: scale(1.05);
+        .ig-card:hover .ig-thumb-wrap img {
+            transform: scale(1.03);
         }
-        .play-overlay {
+        .ig-overlay {
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(0,0,0,0.3);
-            transition: background 0.3s ease;
+            background: rgba(0,0,0,0.15);
+            opacity: 0;
+            transition: opacity 0.2s ease;
         }
-        .video-card:hover .play-overlay {
-            background: rgba(0,0,0,0.5);
+        .ig-card:hover .ig-overlay {
+            opacity: 1;
         }
-        .play-overlay .play-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(255,255,255,0.9);
+        .ig-overlay .ig-play-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(255,255,255,0.92);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
+            font-size: 22px;
             color: #e74c3c;
-            padding-left: 4px;
-            transition: transform 0.3s ease;
+            padding-left: 3px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
         }
-        .video-card:hover .play-overlay .play-icon {
-            transform: scale(1.1);
+        .ig-body {
+            padding: 12px 14px 10px;
         }
-        .video-card .card-body {
-            padding: 1.25rem;
+        .ig-body .ig-title {
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #262626;
+            margin-bottom: 3px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .ig-body .ig-desc {
+            font-size: 0.8rem;
+            color: #8e8e8e;
+            margin-bottom: 8px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .ig-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #efefef;
+            padding: 8px 14px;
+        }
+        .ig-footer .ig-date {
+            font-size: 0.7rem;
+            color: #8e8e8e;
+            letter-spacing: 0.02em;
+        }
+        .ig-footer .ig-tag {
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: #fff;
+            background: #971515;
+            padding: 2px 10px;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
     </style>
 
@@ -242,25 +283,25 @@
                 var v = videos[j];
                 var thumb = getGoogleDriveThumbnail(v.url);
                 var col = document.createElement('div');
-                col.className = 'col-lg-6 col-md-6 col-sm-12 mb-4 video-col';
+                col.className = 'col-lg-4 col-md-6 col-sm-12 mb-4 video-col';
                 col.setAttribute('data-search', v.title + ' ' + v.description + ' ' + v.tipo);
                 col.setAttribute('data-tipo', v.tipo);
                 var tipoLabel = v.tipo.charAt(0).toUpperCase() + v.tipo.slice(1);
                 col.innerHTML =
-                    '<div class="bg-light rounded video-card h-100" onclick="openVideo(\'' + v.url.replace(/'/g, "\\'") + '\', \'' + v.title.replace(/'/g, "\\'") + '\')">' +
-                        '<div class="video-thumb-wrap">' +
-                            '<img src="' + thumb + '" alt="' + v.title + '" loading="lazy">' +
-                            '<div class="play-overlay">' +
-                                '<div class="play-icon"><i class="fa fa-play"></i></div>' +
+                    '<div class="ig-card h-100" onclick="openVideo(\'' + v.url.replace(/'/g, "\\'") + '\', \'' + v.title.replace(/'/g, "\\'") + '\')">' +
+                        '<div class="ig-thumb-wrap">' +
+                            '<img src="' + thumb + '" alt="' + v.title.replace(/'/g, "\\'") + '" loading="lazy">' +
+                            '<div class="ig-overlay">' +
+                                '<div class="ig-play-icon"><i class="fa fa-play"></i></div>' +
                             '</div>' +
                         '</div>' +
-                        '<div class="card-body">' +
-                            '<h5 class="text-primary mb-1">' + v.title + '</h5>' +
-                            '<p class="mb-1 text-muted">' + v.description + '</p>' +
-                            '<div class="d-flex justify-content-between align-items-center">' +
-                                '<small class="text-muted"><i class="fa fa-calendar me-1"></i>' + v.date + '</small>' +
-                                '<span class="badge bg-primary">' + tipoLabel + '</span>' +
-                            '</div>' +
+                        '<div class="ig-body">' +
+                            '<div class="ig-title">' + v.title.replace(/'/g, "\\'") + '</div>' +
+                            '<div class="ig-desc">' + v.description.replace(/'/g, "\\'") + '</div>' +
+                        '</div>' +
+                        '<div class="ig-footer">' +
+                            '<span class="ig-date"><i class="fa fa-calendar me-1"></i>' + v.date + '</span>' +
+                            '<span class="ig-tag">' + tipoLabel + '</span>' +
                         '</div>' +
                     '</div>';
                 container.appendChild(col);

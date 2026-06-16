@@ -64,57 +64,16 @@
 
 
     <!-- Pricing Plan Start -->
+	<div id="iframe-loader" style="display:flex; flex-direction:column; justify-content:center; align-items:center; min-height:400px; width:100%;">
+		<div class="spinner"></div>
+		<p class="mt-2" style="color:#971515; margin-top:10px;">Cargando estadísticas...</p>
+	</div>
 	<div style="display:flex; justify-content:center;">
-		<iframe src="https://lookerstudio.google.com/embed/reporting/b87c2e38-9f76-4b99-8276-868978859c22/page/onHmF"
-		  frameborder="0" style="width:100%; max-width:1080px; height:1920px; border:0;" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+		<iframe id="stats-iframe" src="https://lookerstudio.google.com/embed/reporting/b87c2e38-9f76-4b99-8276-868978859c22/page/onHmF"
+		  frameborder="0" style="width:100%; max-width:1080px; border:0; display:none;" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
 		</iframe>
 	</div>
 	
-	<div style="position: relative; width: 100%; height: 0; padding-top: 75.0000%;
- padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
- border-radius: 8px; will-change: transform;">
-  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-    src="https://www.canva.com/design/DAHGGR8zmUc/hhD1UY3a3C922xZ1HdNaug/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-  </iframe>
-</div>
-<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAHGGR8zmUc&#x2F;hhD1UY3a3C922xZ1HdNaug&#x2F;view?utm_content=DAHGGR8zmUc&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">ESTADÍSTICA 1 - CSJ TACNA</a> del MCCALP.<br> <br>
-	
-	<div style="position: relative; width: 100%; height: 0; padding-top: 75.0000%;
- padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
- border-radius: 8px; will-change: transform;">
-  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-    src="https://www.canva.com/design/DAHGGaQWTrc/lj9rFVj9v1bZl7Vula2P9Q/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-  </iframe>
-</div>
-<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAHGGaQWTrc&#x2F;lj9rFVj9v1bZl7Vula2P9Q&#x2F;view?utm_content=DAHGGaQWTrc&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">ESTADÍSTICA 2 - CSJ TACNA</a> del MCCALP.<br> <br>
-
-	<div style="position: relative; width: 100%; height: 0; padding-top: 75.0000%;
- padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
- border-radius: 8px; will-change: transform;">
-  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-    src="https://www.canva.com/design/DAHGGXkvtz0/1W0ZBMnxAOE3kaRf64jChw/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-  </iframe>
-</div>
-<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAHGGXkvtz0&#x2F;1W0ZBMnxAOE3kaRf64jChw&#x2F;view?utm_content=DAHGGXkvtz0&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">ESTADÍSTICA 3 - CSJ TACNA</a> del MCCALP.<br> <br>
-		
-	<!-- Vendor Start -->
-    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s" hidden>
-        <div class="container py-5 mb-5">
-            <div class="bg-white">
-                <div class="owl-carousel vendor-carousel">
-                    <img src="img/vendor-10.png" alt="">
-                    <img src="img/vendor-11.jpg" alt="">
-                    <img src="img/vendor-12.png" alt="">
-                    <img src="img/vendor-16.png" alt="">
-					<img src="img/vendor-13.png" alt="">
-                    <img src="img/vendor-14.jpg" alt="">
-                    <img src="img/vendor-15.jpg" alt="">
-					<img src="img/vendor-17.png" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Vendor End -->
     
 
     <div data-include="components/footer.html"></div>
@@ -132,6 +91,29 @@
     <script src="js/main.js"></script>
 
     <script src="js/include.js"></script>
+
+    <script>
+    var iframe = document.getElementById('stats-iframe');
+    var loader = document.getElementById('iframe-loader');
+
+    window.addEventListener('message', function(e) {
+        if (e.origin !== 'https://lookerstudio.google.com') return;
+        try {
+            var data = typeof e.data === 'string' ? JSON.parse(e.data) : e.data;
+            if (data.height) {
+                iframe.style.height = data.height + 'px';
+            }
+        } catch(err) {}
+    });
+
+    iframe.addEventListener('load', function() {
+        loader.style.display = 'none';
+        iframe.style.display = 'block';
+        if (!iframe.style.height || iframe.style.height === '') {
+            iframe.style.height = Math.max(window.innerHeight * 0.85, 400) + 'px';
+        }
+    });
+    </script>
 </body>
 
 </html>
