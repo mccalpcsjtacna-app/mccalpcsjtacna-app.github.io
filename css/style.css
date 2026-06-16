@@ -560,19 +560,25 @@ h6,
     background: rgba(0,0,0,.9);
     z-index: 9999;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     cursor: zoom-out;
     opacity: 0;
     transition: opacity .3s ease;
+    overflow: auto;
+    padding: 20px;
 }
 .img-zoom-overlay.show {
     opacity: 1;
 }
 .img-zoom-overlay img {
-    max-width: 95%;
-    max-height: 95%;
-    object-fit: contain;
+    display: block;
+    max-width: none;
+    max-height: none;
+    width: auto;
+    height: auto;
     border-radius: 4px;
     box-shadow: 0 0 30px rgba(0,0,0,.5);
+    transform: scale(1.8);
+    transform-origin: top center;
 }
