@@ -14,6 +14,22 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.querySelectorAll('.navbar-nav .nav-link, .navbar-nav .dropdown-item').forEach(link => {
         if (link.getAttribute('href') === page) link.classList.add('active');
     });
+    document.querySelectorAll('.img-zoomable').forEach(img => {
+        img.addEventListener('click', function() {
+            const overlay = document.createElement('div');
+            overlay.className = 'img-zoom-overlay';
+            const clone = this.cloneNode();
+            overlay.appendChild(clone);
+            overlay.addEventListener('click', () => {
+                overlay.classList.remove('show');
+                setTimeout(() => overlay.remove(), 300);
+            });
+            document.body.appendChild(overlay);
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => overlay.classList.add('show'));
+            });
+        });
+    });
     if (typeof WOW !== 'undefined') new WOW().init();
     if (typeof jQuery !== 'undefined') {
         if (jQuery.fn.counterUp) {
