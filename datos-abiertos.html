@@ -39,70 +39,12 @@
     <!-- Spinner End -->
 
 
-    <!-- Topbar Start -->
-    <div class="container-fluid bg-dark px-5 d-none d-lg-block">
-        <div class="row gx-0">
-            <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
-                <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>Av. Municipal S/N, Tacna, Perú</small>
-                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+51 970806757</small>
-                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>mccalp_csjtacna@pj.gob.pe</small>
-                </div>
-            </div>
-            <div class="col-lg-4 text-center text-lg-end">
-                <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.pj.gob.pe/wps/wcm/connect/cortesuperiortacnapj/s_csj_de_tacna/as_inicio/inicio_corte_tacna"><i class="fab fa-twitter fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.facebook.com/share/1BMudf7CEK/"><i class="fab fa-facebook-f fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.tiktok.com/@corte.superior.tacna?_r=1&_t=ZS-94jnuikzgYh"><i class="fab fa-tiktok"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="" hidden><i class="fab fa-instagram fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="https://youtube.com/@poderjudicialdelperu?si=0OBJIQ6GNfh9ChYy"><i class="fab fa-youtube fw-normal"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Topbar End -->
+    <div data-include="components/topbar.html"></div>
 
 
     <!-- Navbar Start -->
     <div class="container-fluid position-relative p-0">
-        <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
-            <a href="index.html" class="navbar-brand p-0 d-flex align-items-center" style="white-space: normal;">
-                <img class="me-3" src="img/logo-pj.png" alt="Image" style="width: 50px;height: auto;flex-shrink: 0;">
-				<h1 class="m-0 responsive-title">
-					<span class="d-none d-lg-inline">
-                    <b>Módulo Corporativo Contencioso Administrativo<br>Laboral y Previsional</b>
-                	</span>
-	                <span class="d-inline d-lg-none">
-	                    <b>MCCALP</b>
-	                </span>
-            	</h1>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="fa fa-bars"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav ms-auto py-0">
-                    <a href="index.html" class="nav-item nav-link active">Inicio</a>
-                    <a href="nosotros.html" class="nav-item nav-link" hidden>Nosotros</a>
-                    <a href="datos-abiertos.html" class="nav-item nav-link">Datos Abiertos</a>
-					<a href="estadisticas.html" class="nav-item nav-link">Estadísticas</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Páginas</a>
-                        <div class="dropdown-menu m-0">
-                            <a href="#" class="dropdown-item" hidden>Precios planes</a>
-
-							<a href="personal.html" class="dropdown-item">Personal</a>
-                            <a href="logros.html" class="dropdown-item" hidden>Logros destacados</a>
-                            <a href="preguntas-frecuentes.html" class="dropdown-item">Preguntas frecuentes</a>
-                            <a href="podcast.html" class="dropdown-item">Podcast</a>
-                        </div>
-                    </div>
-                    <a href="contacto.html" class="nav-item nav-link">Contáctanos</a>
-                </div>
-                <butaton type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mccalp_csjtacna@pj.gob.pe&su=Asunto&body=Cuerpo+del+mensaje" class="btn btn-primary py-2 px-4 ms-3">Escribenos</a>
-            </div>
-        </nav>
+        <div data-include="components/navbar.html"></div>
         <div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 0px;">
             <div class="row py-5">
                 <div class="col-12 pt-lg-5 mt-lg-5 text-center">
@@ -117,23 +59,7 @@
     <!-- Navbar End -->
 
 
-    <!-- Full Screen Search Start -->
-    <div class="modal fade" id="searchModal" tabindex="-1">
-        <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content" style="background: rgba(9, 30, 62, .7);">
-                <div class="modal-header border-0">
-                    <button type="button" class="btn bg-white btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body d-flex align-items-center justify-content-center">
-                    <div class="input-group" style="max-width: 600px;">
-                        <input type="text" class="form-control bg-transparent border-primary p-3" placeholder="Type search keyword">
-                        <button class="btn btn-primary px-4"><i class="bi bi-search"></i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Full Screen Search End -->
+    <div data-include="components/search-modal.html"></div>
 
 
     <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
@@ -191,102 +117,7 @@
     <!-- Vendor End -->
     
 
-    <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-light mt-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container">
-            <div class="row gx-5">
-                <div class="col-lg-4 col-md-6 footer-about">
-                    <div class="d-flex flex-column align-items-center justify-content-center text-center h-100 bg-primary p-4">
-						<a href="index.html" class="navbar-brand p-0 d-flex">
-                            <img class="me-3" src="img/pj-logo-blancoo.png" alt="Image" style="width: 80px;height: auto;">
-							<h1 class="m-0 lh1 text-white">MCCALP</h1>
-                        </a>
-                        <p class="mt-3 mb-4">Nos encargamos de administrar justicia de manera oportuna, eficiente y transparente, garantizando el acceso a la justicia a todos los ciudadanos en materia contencioso administrativo, laboral y previsional.</p>
-                        <form action="">
-                            <div class="input-group">
-                                <input type="text" class="form-control border-white p-3" placeholder="Ingresa tu correo">
-                                <button class="btn btn-dark" onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&to=mccalp_csjtacna@pj.gob.pe&su=Asunto&body=Cuerpo', '_blank')">Escríbenos</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-lg-8 col-md-6">
-                    <div class="row gx-5">
-                        <div class="col-lg-4 col-md-12 pt-5 mb-5">
-                            <div class="section-title section-title-sm position-relative pb-3 mb-4">
-                                <h3 class="text-light mb-0">Encuentranos</h3>
-                            </div>
-                            <div class="d-flex mb-2">
-                                <i class="bi bi-geo-alt text-primary me-2"></i>
-                                <p class="mb-0">Av. Municipal S/N, Tacna, G.A.L.</p>
-                            </div>
-                            <div class="d-flex mb-2">
-                                <i class="bi bi-envelope-open text-primary me-2"></i>
-                                <p class="mb-0">mccalp_csjtacna@pj.gob.pe</p>
-                            </div>
-                            <div class="d-flex mb-2">
-                                <i class="bi bi-telephone text-primary me-2"></i>
-                                <p class="mb-0">+51 970 806 757</p>
-                            </div>
-                            <div class="d-flex mt-4">
-                                <a class="btn btn-primary btn-square me-2" href="https://www.pj.gob.pe/wps/wcm/connect/cortesuperiortacnapj/s_csj_de_tacna/as_inicio/inicio_corte_tacna"><i class="fab fa-twitter fw-normal"></i></a>
-                                <a class="btn btn-primary btn-square me-2" href="https://www.facebook.com/share/1BMudf7CEK/"><i class="fab fa-facebook-f fw-normal"></i></a>
-                                <a class="btn btn-primary btn-square me-2" href="https://www.tiktok.com/@corte.superior.tacna?_r=1&_t=ZS-94jnuikzgYh"><i class="fab fa-linkedin-in fw-normal"></i></a>
-                                <a class="btn btn-primary btn-square" href="#"><i class="fab fa-instagram fw-normal"></i></a>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
-                            <div class="section-title section-title-sm position-relative pb-3 mb-4">
-                                <h3 class="text-light mb-0">Enlaces de ayuda</h3>
-                            </div>
-                            <div class="link-animated d-flex flex-column justify-content-start">
-                                <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Inicio</a>
-                                <a class="text-light mb-2" href="nosotros.html"><i class="bi bi-arrow-right text-primary me-2"></i>Nosotros</a>
-                                <a class="text-light mb-2" href="datos-abiertos.html"><i class="bi bi-arrow-right text-primary me-2"></i>Datos abiertos</a>
-
-                                <a class="text-light mb-2" href="#" hidden><i class="bi bi-arrow-right text-primary me-2"></i>Preguntas frecuentes</a>
-                                <a class="text-light" href="#" hidden><i class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
-                            <div class="section-title section-title-sm position-relative pb-3 mb-4">
-                                <h3 class="text-light mb-0">Enlaces populares</h3>
-                            </div>
-                            <div class="link-animated d-flex flex-column justify-content-start">
-                                <a class="text-light mb-2" href="https://www.pj.gob.pe/wps/wcm/connect/cortesuperiortacnapj/s_csj_de_tacna/as_inicio/inicio_corte_tacna"><i class="bi bi-arrow-right text-primary me-2"></i>CSJ Tacna</a>
-                                <a class="text-light mb-2" href="https://www.pj.gob.pe/wps/wcm/connect/CorteSuprema/s_cortes_suprema_home/as_Inicio/"><i class="bi bi-arrow-right text-primary me-2"></i>Poder Judicial</a>
-                                <a class="text-light mb-2" href="https://casillas.pj.gob.pe/sinoe/login.xhtml"><i class="bi bi-arrow-right text-primary me-2"></i>Mesa de partes electrónica</a>
-                                <a class="text-light mb-2" href="preguntas-frecuentes.html"><i class="bi bi-arrow-right text-primary me-2"></i>Preguntas frecuentes</a>
-                                <a class="text-light mb-2" href="#" hidden><i class="bi bi-arrow-right text-primary me-2"></i>Latest Blog</a>
-                                <a class="text-light" href="#" hidden><i class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid text-white" style="background: #061429;">
-        <div class="container text-center">
-            <div class="row justify-content-end">
-                <div class="col-lg-8 col-md-6">
-                    <div class="d-flex align-items-center justify-content-center" style="height: 75px;">
-                        <p class="mb-0">&copy; <a class="text-white border-bottom" href="#">MCCALP</a>. Todos los derechos reservados. 
-						
-						<!--/*** As long as you keep the footer link/attribution link/backlink. ***/-->
-						<!--/*** Designed by***/-->
-						<!--/*** <a class="text-white border-bottom" href="https://htmlcodex.com"></a></p> ***/-->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Footer End -->
-
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
-
+    <div data-include="components/footer.html"></div>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -296,165 +127,11 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/counterup/counterup.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-	
-	<script>
-		var files = [
-			{f:"DEMANDA",t:"pdf",n:12,y:2025},{f:"DEMANDA",t:"xlsx",n:12,y:2025},{f:"DEMANDA",t:"csv",n:12,y:2025},
-			{f:"DEMANDA",t:"pdf",n:1,y:2026},{f:"DEMANDA",t:"xlsx",n:1,y:2026},{f:"DEMANDA",t:"csv",n:1,y:2026},
-			{f:"DEMANDA",t:"pdf",n:2,y:2026},{f:"DEMANDA",t:"xlsx",n:2,y:2026},{f:"DEMANDA",t:"csv",n:2,y:2026},
-			{f:"DEMANDA",t:"pdf",n:3,y:2026},{f:"DEMANDA",t:"xlsx",n:3,y:2026},{f:"DEMANDA",t:"csv",n:3,y:2026},
-			{f:"DEMANDA",t:"pdf",n:4,y:2026},{f:"DEMANDA",t:"xlsx",n:4,y:2026},{f:"DEMANDA",t:"csv",n:4,y:2026},
-			{f:"SENTENCIA",t:"pdf",n:12,y:2025},{f:"SENTENCIA",t:"xlsx",n:12,y:2025},{f:"SENTENCIA",t:"csv",n:12,y:2025},
-			{f:"SENTENCIA",t:"pdf",n:1,y:2026},{f:"SENTENCIA",t:"xlsx",n:1,y:2026},{f:"SENTENCIA",t:"csv",n:1,y:2026},
-			{f:"SENTENCIA",t:"pdf",n:2,y:2026},{f:"SENTENCIA",t:"xlsx",n:2,y:2026},{f:"SENTENCIA",t:"csv",n:2,y:2026},
-			{f:"SENTENCIA",t:"pdf",n:3,y:2026},{f:"SENTENCIA",t:"xlsx",n:3,y:2026},{f:"SENTENCIA",t:"csv",n:3,y:2026},
-			{f:"SENTENCIA",t:"pdf",n:4,y:2026},{f:"SENTENCIA",t:"xlsx",n:4,y:2026},{f:"SENTENCIA",t:"csv",n:4,y:2026},
-			{f:"TRAMITE",t:"pdf",n:12,y:2025},{f:"TRAMITE",t:"xlsx",n:12,y:2025},{f:"TRAMITE",t:"csv",n:12,y:2025},
-			{f:"TRAMITE",t:"pdf",n:1,y:2026},{f:"TRAMITE",t:"xlsx",n:1,y:2026},{f:"TRAMITE",t:"csv",n:1,y:2026},
-			{f:"TRAMITE",t:"pdf",n:2,y:2026},{f:"TRAMITE",t:"xlsx",n:2,y:2026},{f:"TRAMITE",t:"csv",n:2,y:2026},
-			{f:"TRAMITE",t:"pdf",n:3,y:2026},{f:"TRAMITE",t:"xlsx",n:3,y:2026},{f:"TRAMITE",t:"csv",n:3,y:2026},
-			{f:"TRAMITE",t:"pdf",n:4,y:2026},{f:"TRAMITE",t:"xlsx",n:4,y:2026},{f:"TRAMITE",t:"csv",n:4,y:2026}
-		];
 
-		var monthNames = {1:"Enero",2:"Febrero",3:"Marzo",4:"Abril",5:"Mayo",6:"Junio",7:"Julio",8:"Agosto",9:"Setiembre",10:"Octubre",11:"Noviembre",12:"Diciembre"};
-		var categoryNames = {DEMANDA:"Demandas",SENTENCIA:"Sentencias",TRAMITE:"Trámite"};
-		var formatLabel = {pdf:"PDF",xlsx:"Excel",csv:"CSV"};
-		var formatColor = {pdf:"danger",xlsx:"success",csv:"info"};
-		var formatIcon = {pdf:"bi-file-pdf",xlsx:"bi-file-earmark-excel",csv:"bi-file-earmark-spreadsheet"};
-
-		var yearSelect = document.getElementById('filterYear');
-		var monthSelect = document.getElementById('filterMonth');
-		var catSelect = document.getElementById('filterCategory');
-
-		function getMonthsForYear(year) {
-			var m = {};
-			files.forEach(function(f) {
-				if (year && f.y != parseInt(year)) return;
-				m[f.n] = 1;
-			});
-			return Object.keys(m).map(Number).sort(function(a,b){return a-b});
-		}
-
-		function getCatsForYearMonth(year, month) {
-			var c = {};
-			files.forEach(function(f) {
-				if (year && f.y != parseInt(year)) return;
-				if (month && f.n != parseInt(month)) return;
-				c[f.f] = 1;
-			});
-			return Object.keys(c).sort();
-		}
-
-		function populateYearFilter() {
-			var y = {};
-			files.forEach(function(f) { y[f.y] = 1; });
-			var html = '<option value="">Todos los años</option>';
-			Object.keys(y).sort().forEach(function(v) { html += '<option value="'+v+'">'+v+'</option>'; });
-			yearSelect.innerHTML = html;
-		}
-
-		function updateMonthFilter(keepValue) {
-			var year = yearSelect.value;
-			var months = getMonthsForYear(year);
-			var html = '<option value="">Todos los meses</option>';
-			months.forEach(function(m) { html += '<option value="'+m+'">'+monthNames[m]+'</option>'; });
-			monthSelect.innerHTML = html;
-			if (keepValue && months.indexOf(parseInt(keepValue)) !== -1) monthSelect.value = keepValue;
-		}
-
-		function updateCategoryFilter(keepValue) {
-			var year = yearSelect.value;
-			var month = monthSelect.value;
-			var cats = getCatsForYearMonth(year, month);
-			var html = '<option value="">Todas las categorías</option>';
-			cats.forEach(function(c) { html += '<option value="'+c+'">'+categoryNames[c]+'</option>'; });
-			catSelect.innerHTML = html;
-			if (keepValue && cats.indexOf(keepValue) !== -1) catSelect.value = keepValue;
-
-			var sideHtml = '';
-			cats.forEach(function(c) {
-				sideHtml += '<li class="mb-2"><a href="#" onclick="setCategory(\''+c+'\');return false;" class="text-decoration-none"><i class="bi bi-folder2-open text-primary me-2"></i>'+categoryNames[c]+'</a></li>';
-			});
-			document.getElementById('categoryList').innerHTML = sideHtml;
-		}
-
-		function groupFiles(year, month) {
-			var groups = {};
-			var filtered = files;
-			if (year) filtered = filtered.filter(function(f){return f.y==parseInt(year);});
-			if (month) filtered = filtered.filter(function(f){return f.n==parseInt(month);});
-			filtered.forEach(function(f) {
-				var key = f.f+'-'+f.n+'-'+f.y;
-				if (!groups[key]) groups[key] = {cat:f.f,month:f.n,year:f.y,formats:{}};
-				groups[key].formats[f.t] = 1;
-			});
-			var sorted = Object.keys(groups).sort().map(function(k){return groups[k];});
-			sorted.sort(function(a,b){return a.cat.localeCompare(b.cat) || a.month-b.month || a.year-b.year;});
-			return sorted;
-		}
-
-		function renderResults() {
-			var year = yearSelect.value;
-			var month = monthSelect.value;
-			var cat = document.getElementById('filterCategory').value;
-			var container = document.getElementById('resultsContainer');
-			var groups = groupFiles(year, month);
-
-			if (cat) groups = groups.filter(function(g){return g.cat==cat;});
-
-			if (groups.length===0) {
-				container.innerHTML = '<div class="alert alert-warning text-center">No se encontraron documentos con los filtros seleccionados.</div>';
-				return;
-			}
-
-			var html = '<div class="row">';
-			groups.forEach(function(g) {
-				var hasPdf = g.formats.pdf ? true : false;
-				var hasXlsx = g.formats.xlsx ? true : false;
-				var hasCsv = g.formats.csv ? true : false;
-				html += '<div class="col-md-6 mb-3">'+
-					'<div class="card border-0 shadow-sm h-100">'+
-					'<div class="card-body">'+
-					'<h6 class="card-title mb-3">'+categoryNames[g.cat]+' — '+monthNames[g.month]+' '+g.year+'</h6>'+
-					'<div class="d-flex gap-2 flex-wrap">';
-				if (hasPdf) html += '<a href="pdf/'+g.cat+'-pdf-'+g.month+'-'+g.year+'.pdf" class="btn btn-outline-'+formatColor.pdf+' btn-sm rounded-pill" download><i class="bi '+formatIcon.pdf+' me-1"></i>PDF</a>';
-				if (hasXlsx) html += '<a href="pdf/'+g.cat+'-excel-'+g.month+'-'+g.year+'.xlsx" class="btn btn-outline-'+formatColor.xlsx+' btn-sm rounded-pill" download><i class="bi '+formatIcon.xlsx+' me-1"></i>Excel</a>';
-				if (hasCsv) html += '<a href="pdf/'+g.cat+'-csv-'+g.month+'-'+g.year+'.csv" class="btn btn-outline-'+formatColor.csv+' btn-sm rounded-pill" download><i class="bi '+formatIcon.csv+' me-1"></i>CSV</a>';
-				html += '</div></div></div></div>';
-			});
-			html += '</div>';
-			container.innerHTML = html;
-		}
-
-		function onChange() {
-			updateMonthFilter(monthSelect.value);
-			updateCategoryFilter(catSelect.value);
-			renderResults();
-		}
-
-		function onMonthChange() {
-			updateCategoryFilter(catSelect.value);
-			renderResults();
-		}
-
-		document.addEventListener("DOMContentLoaded",function() {
-			populateYearFilter();
-			updateMonthFilter();
-			updateCategoryFilter();
-			renderResults();
-			yearSelect.addEventListener('change', onChange);
-			monthSelect.addEventListener('change', onMonthChange);
-			catSelect.addEventListener('change', renderResults);
-		});
-
-		window.setCategory = function(cat) {
-			catSelect.value = cat;
-			renderResults();
-		}
-	</script>
-	
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <script src="js/include.js"></script>
 </body>
 
 </html>
