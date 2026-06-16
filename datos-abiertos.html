@@ -70,16 +70,12 @@
 			materia, fecha de ingreso, hora de ingreso y más campos que permitiran a los lectores realizar búsquedas de información detallada del Módulo
 			Corporativo Contencioso Administrativo Laboral y Previsional.</p>
 					<p class="text-justify mb-4">Seleccione los criterios para visualizar los documentos del Módulo Corporativo.</p>
-                    	<div class="row g-3 mb-5 p-3 bg-light rounded shadow-sm">
-	                    <div class="col-md-4">
+                    <div class="row g-3 mb-5 p-3 bg-light rounded shadow-sm">
+	                    <div class="col-md-6">
 	                        <label class="form-label fw-bold">Año:</label>
 	                        <select id="filterYear" class="form-select"></select>
 	                    </div>
-	                    <div class="col-md-4">
-	                        <label class="form-label fw-bold">Mes:</label>
-	                        <select id="filterMonth" class="form-select"></select>
-	                    </div>
-	                    <div class="col-md-4">
+	                    <div class="col-md-6">
 	                        <label class="form-label fw-bold">Categoría:</label>
 	                        <select id="filterCategory" class="form-select"></select>
 	                    </div>
@@ -132,6 +128,154 @@
     <script src="js/main.js"></script>
 
     <script src="js/include.js"></script>
+
+    <script>
+        var monthNames = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Setiembre','Octubre','Noviembre','Diciembre'];
+        var pdfTree = {};
+        var repo = 'mccalpcsjtacna-app/mccalpcsjtacna-app.github.io';
+
+        function loadTree() {
+            var branch = 'main';
+            fetch('https://api.github.com/repos/' + repo + '/git/trees/' + branch + '?recursive=1')
+                .then(function(r) {
+                    if (!r.ok) throw new Error('Error al cargar el repositorio');
+                    return r.json();
+                })
+                .then(function(tree) {
+                    tree.tree.forEach(function(item) {
+                        if (item.type === 'blob' && item.path.startsWith('pdf/')) {
+                            var parts = item.path.split('/');
+                            if (parts.length === 4) {
+                                var year = parts[1];
+                                var cat = parts[2];
+                                var name = parts[3];
+                                var match = name.match(/^(.+?)-(.+?)-(\d+)-(\d+)\./);
+                                if (match) {
+                                    if (!pdfTree[year]) pdfTree[year] = {};
+                                    if (!pdfTree[year][cat]) pdfTree[year][cat] = [];
+                                    pdfTree[year][cat].push({
+                                        format: match[2],
+                                        month: match[3],
+                                        fullName: name,
+                                        path: item.path
+                                    });
+                                }
+                            }
+                        }
+                    });
+                    populateYears();
+                })
+                .catch(function(err) {
+                    document.getElementById('resultsContainer').innerHTML = '<div class="alert alert-danger">Error al cargar datos: ' + err.message + '</div>';
+                });
+        }
+
+        function populateYears() {
+            var sel = document.getElementById('filterYear');
+            sel.innerHTML = '<option value="">Seleccione un año</option>';
+            Object.keys(pdfTree).sort().forEach(function(y) {
+                sel.innerHTML += '<option value="' + y + '">' + y + '</option>';
+            });
+            document.getElementById('filterCategory').innerHTML = '<option value="">Primero seleccione año</option>';
+            document.getElementById('categoryList').innerHTML = '';
+            document.getElementById('resultsContainer').innerHTML = '<div class="alert alert-info">Seleccione un año para comenzar.</div>';
+        }
+
+        function onYearChange() {
+            var year = document.getElementById('filterYear').value;
+            var catSel = document.getElementById('filterCategory');
+            catSel.innerHTML = '<option value="">Seleccione categoría</option>';
+            document.getElementById('categoryList').innerHTML = '';
+            if (!year) {
+                document.getElementById('resultsContainer').innerHTML = '<div class="alert alert-info">Seleccione un año para comenzar.</div>';
+                return;
+            }
+            var cats = pdfTree[year];
+            if (!cats) {
+                document.getElementById('resultsContainer').innerHTML = '<div class="alert alert-warning">No hay datos para el año seleccionado.</div>';
+                return;
+            }
+            var catOrder = ['demanda','sentencia','tramite'];
+            var listHtml = '';
+            catOrder.forEach(function(c) {
+                if (cats[c]) {
+                    var label = c.charAt(0).toUpperCase() + c.slice(1);
+                    var count = cats[c].length;
+                    catSel.innerHTML += '<option value="' + c + '">' + label + '</option>';
+                    listHtml += '<li class="mb-2"><i class="fa fa-folder text-primary me-2"></i><a href="#" class="text-decoration-none" onclick="document.getElementById(\'filterCategory\').value=\'' + c + '\'; onCategoryChange(); return false;">' + label + ' <span class="badge bg-primary rounded-pill">' + count + '</span></a></li>';
+                }
+            });
+            document.getElementById('categoryList').innerHTML = listHtml;
+            showYearResults(year, cats);
+        }
+
+        function showYearResults(year, cats) {
+            var catOrder = ['demanda','sentencia','tramite'];
+            var html = '<h4 class="mb-4">Resumen ' + year + '</h4><div class="row">';
+            catOrder.forEach(function(c) {
+                if (!cats[c]) return;
+                var label = c.charAt(0).toUpperCase() + c.slice(1);
+                var formats = {};
+                cats[c].forEach(function(f) { formats[f.format] = true; });
+                var fmtIcons = {'CSV':'fa-file-csv','EXCEL':'fa-file-excel','PDF':'fa-file-pdf'};
+                var fmtHtml = Object.keys(formats).sort().map(function(f) {
+                    return '<span class="badge bg-primary me-1"><i class="fa ' + (fmtIcons[f]||'fa-file') + ' me-1"></i>' + f + '</span>';
+                }).join('');
+                html += '<div class="col-md-4 mb-3">' +
+                    '<div class="card h-100 shadow-sm border-0" style="cursor:pointer" onclick="document.getElementById(\'filterCategory\').value=\'' + c + '\'; onCategoryChange();">' +
+                    '<div class="card-body text-center">' +
+                    '<i class="fa fa-folder-open text-primary" style="font-size:2.5rem"></i>' +
+                    '<h5 class="card-title mt-2">' + label + '</h5>' +
+                    '<p class="mb-2"><strong>' + cats[c].length + '</strong> archivos</p>' +
+                    '<div>' + fmtHtml + '</div>' +
+                    '</div></div></div>';
+            });
+            html += '</div>';
+            document.getElementById('resultsContainer').innerHTML = html;
+        }
+
+        function onCategoryChange() {
+            var year = document.getElementById('filterYear').value;
+            var cat = document.getElementById('filterCategory').value;
+            if (!year || !cat) {
+                if (year) showYearResults(year, pdfTree[year]);
+                else document.getElementById('resultsContainer').innerHTML = '<div class="alert alert-info">Seleccione un año.</div>';
+                return;
+            }
+            var files = pdfTree[year][cat];
+            if (!files || files.length === 0) {
+                document.getElementById('resultsContainer').innerHTML = '<div class="alert alert-warning">No hay archivos para esta categoría.</div>';
+                return;
+            }
+            var months = {};
+            files.forEach(function(f) {
+                if (!months[f.month]) months[f.month] = [];
+                months[f.month].push(f);
+            });
+            var html = '<h4 class="mb-4">' + cat.charAt(0).toUpperCase() + cat.slice(1) + ' - ' + year + '</h4><div class="row">';
+            var monthKeys = Object.keys(months).sort(function(a,b){return a-b;});
+            monthKeys.forEach(function(m) {
+                var items = months[m];
+                var label = monthNames[parseInt(m)-1] + ' ' + year;
+                html += '<div class="col-md-4 mb-3">' +
+                    '<div class="card h-100 shadow-sm">' +
+                    '<div class="card-header bg-primary text-white text-center fw-bold">' + label + '</div>' +
+                    '<div class="card-body text-center">';
+                items.forEach(function(item) {
+                    var icon = item.format === 'PDF' ? 'fa-file-pdf' : item.format === 'EXCEL' ? 'fa-file-excel' : 'fa-file-csv';
+                    html += '<a href="' + item.path + '" target="_blank" class="btn btn-outline-primary mb-2 w-100"><i class="fa ' + icon + ' me-2"></i>' + item.format + '</a>';
+                });
+                html += '</div></div></div>';
+            });
+            html += '</div>';
+            document.getElementById('resultsContainer').innerHTML = html;
+        }
+
+        document.getElementById('filterYear').addEventListener('change', onYearChange);
+        document.getElementById('filterCategory').addEventListener('change', onCategoryChange);
+
+        loadTree();
+    </script>
 </body>
 
 </html>
