@@ -9,7 +9,7 @@
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="img/logo-pj.png" rel="icon" type="image/png">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -105,69 +105,100 @@
     <!-- About End -->
 
 
-    <!-- Team Start -->
-    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s" hidden>
+    <!-- Testimonial Start -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5">
-            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
-                <h5 class="fw-bold text-primary text-uppercase">Team Members</h5>
-                <h1 class="mb-0">Professional Stuffs Ready to Help Your Business</h1>
+            <div class="section-title text-center position-relative pb-3 mb-4 mx-auto" style="max-width: 600px;">
+                <h5 class="fw-bold text-primary text-uppercase">Equipo de trabajo</h5>
+                <h1 class="mb-0">Jueces y colaboradores del MCCALP</h1>
             </div>
-            <div class="row g-5">
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
-                    <div class="team-item bg-light rounded overflow-hidden">
-                        <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/team-1.jpg" alt="">
-                            <div class="team-social">
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href=""><i class="fab fa-twitter fw-normal"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href=""><i class="fab fa-facebook-f fw-normal"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href=""><i class="fab fa-instagram fw-normal"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href=""><i class="fab fa-linkedin-in fw-normal"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center py-4">
-                            <h4 class="text-primary">Full Name</h4>
-                            <p class="text-uppercase m-0">Designation</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.6s">
-                    <div class="team-item bg-light rounded overflow-hidden">
-                        <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/team-2.jpg" alt="">
-                            <div class="team-social">
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href=""><i class="fab fa-twitter fw-normal"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href=""><i class="fab fa-facebook-f fw-normal"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href=""><i class="fab fa-instagram fw-normal"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href=""><i class="fab fa-linkedin-in fw-normal"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center py-4">
-                            <h4 class="text-primary">Full Name</h4>
-                            <p class="text-uppercase m-0">Designation</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.9s">
-                    <div class="team-item bg-light rounded overflow-hidden">
-                        <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/team-3.jpg" alt="">
-                            <div class="team-social">
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href=""><i class="fab fa-twitter fw-normal"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href=""><i class="fab fa-facebook-f fw-normal"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href=""><i class="fab fa-instagram fw-normal"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href=""><i class="fab fa-linkedin-in fw-normal"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center py-4">
-                            <h4 class="text-primary">Full Name</h4>
-                            <p class="text-uppercase m-0">Designation</p>
-                        </div>
-                    </div>
-                </div>
+            <div id="teamCarousel" class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.6s">
             </div>
         </div>
     </div>
-    <!-- Team End -->
+
+    <script>
+    var CATEGORY_ORDER = ['Juez', 'Administrador', 'Secretarios', 'Asistentes', 'Técnicos'];
+
+    var SOCIAL_ICONS = {
+        facebook: { icon: 'fab fa-facebook-f', color: '#1877f2' },
+        twitter: { icon: 'fab fa-twitter', color: '#1da1f2' },
+        linkedin: { icon: 'fab fa-linkedin-in', color: '#0a66c2' },
+        instagram: { icon: 'fab fa-instagram', color: '#e4405f' },
+        youtube: { icon: 'fab fa-youtube', color: '#ff0000' },
+        tiktok: { icon: 'fab fa-tiktok', color: '#000000' },
+        whatsapp: { icon: 'fab fa-whatsapp', color: '#25d366' },
+        email: { icon: 'fa fa-envelope', color: '#ea4335' },
+        website: { icon: 'fa fa-globe', color: '#4285f4' }
+    };
+
+    function loadTeam() {
+        fetch('assets/team.json')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                data.sort(function(a, b) {
+                    return CATEGORY_ORDER.indexOf(a.category) - CATEGORY_ORDER.indexOf(b.category);
+                });
+                var container = document.getElementById('teamCarousel');
+                container.innerHTML = '';
+                data.forEach(function(m) {
+                    var socialHtml = '';
+                    var hasSocial = false;
+                    if (m.social) {
+                        var keys = Object.keys(m.social);
+                        for (var i = 0; i < keys.length; i++) {
+                            var k = keys[i];
+                            var v = m.social[k];
+                            if (v && v.trim() !== '') {
+                                hasSocial = true;
+                                var si = SOCIAL_ICONS[k] || { icon: 'fa fa-link', color: '#6c757d' };
+                                var href = k === 'email' ? 'mailto:' + v : v;
+                                socialHtml += '<a href="' + href + '" target="_blank" class="btn btn-square mx-1" style="width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;background:' + si.color + ';border:none;font-size:0.85rem"><i class="' + si.icon + '" style="color:#fff"></i></a>';
+                            }
+                        }
+                    }
+                    socialHtml = hasSocial ? '<div class="d-flex justify-content-center pb-3 px-5" style="margin-top:-10px">' + socialHtml + '</div>' : '';
+                    var item = document.createElement('div');
+                    item.className = 'testimonial-item bg-light my-4';
+                    item.innerHTML =
+                        '<div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">' +
+                            '<img class="img-fluid rounded" src="' + m.photo + '" style="width:60px;height:60px;object-fit:cover" onerror="this.src=\'img/personal/img-varon.png\'">' +
+                            '<div class="ps-4">' +
+                                '<h5 class="text-primary mb-1">' + m.name + '</h5>' +
+                                '<small class="text-uppercase">' + m.role + '</small>' +
+                            '</div>' +
+                        '</div>' +
+                        '<div class="pt-4 pb-2 px-5">' +
+                            '<p class="mb-0">' + m.description + '</p>' +
+                        '</div>' +
+                        socialHtml;
+                    container.appendChild(item);
+                });
+                var $carousel = $('#teamCarousel');
+                if ($carousel.data('owl.carousel')) {
+                    $carousel.trigger('destroy.owl.carousel');
+                }
+                $carousel.owlCarousel({
+                    autoplay: true,
+                    smartSpeed: 1500,
+                    dots: true,
+                    loop: true,
+                    center: true,
+                    responsive: {
+                        0: { items: 1 },
+                        576: { items: 1 },
+                        768: { items: 2 },
+                        992: { items: 3 }
+                    }
+                });
+            })
+            .catch(function(err) {
+                document.getElementById('teamCarousel').innerHTML = '<div class="alert alert-danger text-center">Error al cargar el equipo: ' + err.message + '</div>';
+            });
+    }
+    loadTeam();
+    </script>
+    <!-- Testimonial End -->
 
 
        <!-- Vendor Start -->

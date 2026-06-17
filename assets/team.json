@@ -1,0 +1,206 @@
+[
+  {
+    "name": "Dr. Luis Miguel San Roman Aquise",
+    "role": "Juez del 2° Juzgado Especializado de Trabajo",
+    "category": "Juez",
+    "photo": "img/personal/juez-1.png",
+    "description": "Juez del Segundo Juzgado Especializado de Trabajo.",
+    "social": {}
+  },
+  {
+    "name": "Dr. Rogelio Alberto Zea Catacora",
+    "role": "Juez del 4° Juzgado Especializado de Trabajo",
+    "category": "Juez",
+    "photo": "img/personal/juez-2.png",
+    "description": "Juez del Cuarto Juzgado Especializado de Trabajo.",
+    "social": {}
+  },
+  {
+    "name": "Mtro. Alberto Johnatan Flor Rodriguez",
+    "role": "Administrador del MCCALP",
+    "category": "Administrador",
+    "photo": "img/personal/coord-1.png",
+    "description": "Administrador del Módulo Corporativo MCCALP.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/aljofloro/"
+    }
+  },
+  {
+    "name": "Dra. Irene Flores Llanos",
+    "role": "Secretaria Judicial",
+    "category": "Secretarios",
+    "photo": "img/personal/img-dama.png",
+    "description": "Sub equipo de la etapa Calificación.",
+    "social": {}
+  },
+  {
+    "name": "Abg. Elvis Huallpa Arocutipa",
+    "role": "Secretario Judicial",
+    "category": "Secretarios",
+    "photo": "img/personal/img-varon.png",
+    "description": "Sub equipo de la etapa Decisoria.",
+    "social": {}
+  },
+  {
+    "name": "Abg. Angela Sierra Rodriguez",
+    "role": "Secretaria Judicial",
+    "category": "Secretarios",
+    "photo": "img/personal/img-dama.png",
+    "description": "Sub equipo de la etapa Decisoria.",
+    "social": {}
+  },
+  {
+    "name": "Abg. Rosa Perez Huanchi",
+    "role": "Secretaria Judicial",
+    "category": "Secretarios",
+    "photo": "img/personal/img-dama.png",
+    "description": "Sub equipo de la Etapa Decisoria.",
+    "social": {}
+  },
+  {
+    "name": "Abg. Eduardo Franco Franco",
+    "role": "Secretario Judicial",
+    "category": "Secretarios",
+    "photo": "img/personal/img-varon.png",
+    "description": "Sub equipo de la etapa Trámite.",
+    "social": {}
+  },
+  {
+    "name": "Abg. Jazmin Calderon Medina",
+    "role": "Secretaria Judicial",
+    "category": "Secretarios",
+    "photo": "img/personal/img-dama.png",
+    "description": "Sub equipo de la etapa Trámite.",
+    "social": {}
+  },
+  {
+    "name": "Abg. Catherine Aguilar Chuquimia",
+    "role": "Secretaria Judicial",
+    "category": "Secretarios",
+    "photo": "img/personal/img-dama.png",
+    "description": "Sub equipo de la etapa Ejecución.",
+    "social": {}
+  },
+  {
+    "name": "Abg. Carlos Mendoza Nuñez",
+    "role": "Secretario Judicial",
+    "category": "Secretarios",
+    "photo": "img/personal/img-varon.png",
+    "description": "Sub equipo de la etapa Ejecución.",
+    "social": {}
+  },
+  {
+    "name": "Abg. Luis Chilque Lopez",
+    "role": "Secretario Judicial",
+    "category": "Secretarios",
+    "photo": "img/personal/img-varon.png",
+    "description": "Sub equipo de la etapa Ejecución.",
+    "social": {}
+  },
+  {
+    "name": "Abg. Katherine Romero Mamani",
+    "role": "Secretaria Judicial",
+    "category": "Secretarios",
+    "photo": "img/personal/img-dama.png",
+    "description": "Sub equipo de la etapa Ejecución.",
+    "social": {}
+  },
+  {
+    "name": "Abg. Jessica Tapia Acero",
+    "role": "Secretaria Judicial",
+    "category": "Secretarios",
+    "photo": "img/personal/img-dama.png",
+    "description": "Sub equipo de la etapa Ejecución.",
+    "social": {}
+  },
+  {
+    "name": "Abg. Valeria Calderon Molina",
+    "role": "Asistente Judicial",
+    "category": "Asistentes",
+    "photo": "img/personal/img-dama.png",
+    "description": "Equipo de causas jurisdiccionales.",
+    "social": {}
+  },
+  {
+    "name": "Abg. Delia Onque Quispe",
+    "role": "Asistente Judicial",
+    "category": "Asistentes",
+    "photo": "img/personal/img-dama.png",
+    "description": "Equipo de causas jurisdiccionales.",
+    "social": {}
+  },
+  {
+    "name": "Abg. Blanca Medina Blanco",
+    "role": "Asistente Judicial",
+    "category": "Asistentes",
+    "photo": "img/personal/img-dama.png",
+    "description": "Equipo de causas jurisdiccionales.",
+    "social": {}
+  },
+  {
+    "name": "Abg. Luis Ccama Meneses",
+    "role": "Asistente Judicial",
+    "category": "Asistentes",
+    "photo": "img/personal/img-varon.png",
+    "description": "Equipo de causas jurisdiccionales.",
+    "social": {}
+  },
+  {
+    "name": "Abg. Edwin Tipo Bellido",
+    "role": "Asistente Judicial",
+    "category": "Asistentes",
+    "photo": "img/personal/img-varon.png",
+    "description": "Equipo de causas jurisdiccionales.",
+    "social": {}
+  },
+  {
+    "name": "Abg. Gisela Layme Quispe",
+    "role": "Asistente Judicial",
+    "category": "Asistentes",
+    "photo": "img/personal/img-dama.png",
+    "description": "Equipo de causas jurisdiccionales.",
+    "social": {}
+  },
+  {
+    "name": "Abg. Solangie Perez Infantas",
+    "role": "Asistente Judicial",
+    "category": "Asistentes",
+    "photo": "img/personal/img-dama.png",
+    "description": "Equipo de causas jurisdiccionales.",
+    "social": {}
+  },
+  {
+    "name": "Abg. Janeth Flores Jara",
+    "role": "Asistente Judicial",
+    "category": "Asistentes",
+    "photo": "img/personal/img-dama.png",
+    "description": "Equipo de causas jurisdiccionales.",
+    "social": {}
+  },
+  {
+    "name": "Abg. Diana Joaquin Jinez",
+    "role": "Técnico Administrativo II",
+    "category": "Técnicos",
+    "photo": "img/personal/img-dama.png",
+    "description": "Asistente administrativo del Área de Administración.",
+    "social": {}
+  },
+  {
+    "name": "Br. Adrian Paria Quispe",
+    "role": "Asistente de Sistemas",
+    "category": "Técnicos",
+    "photo": "img/personal/img-varon.png",
+    "description": "Encargado del Sub Equipo de Soporte Técnico del MCCALP.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/adrian-paria-quispe-621a93336/"
+    }
+  },
+  {
+    "name": "Ing. Mauricio Garcia Mazuelos",
+    "role": "Asistente de Custodia de Expedientes",
+    "category": "Técnicos",
+    "photo": "img/personal/img-varon.png",
+    "description": "Encargado del Área del Archivo Modular.",
+    "social": {}
+  }
+]
