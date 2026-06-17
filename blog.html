@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>MCCALP - Módulo Corporativo, Contencioso Administrativo Laboral y Previsional</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/logo-pj.png" rel="icon" type="image/png">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner"></div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <div data-include="components/topbar.html"></div>
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid position-relative p-0">
+        <div data-include="components/navbar.html"></div>
+
+        <div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px;">
+            <div class="row py-5">
+                <div class="col-12 pt-lg-5 mt-lg-5 text-center">
+                    <h1 class="display-4 text-white animated zoomIn">Blog</h1>
+                    <a href="index.html" class="h5 text-white">Inicio</a>
+                    <i class="far fa-circle text-white px-2"></i>
+                    <a href="#" class="h5 text-white">Blog</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+
+    <div data-include="components/search-modal.html"></div>
+
+
+    <!-- Blog Start -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+                <h5 class="fw-bold text-primary text-uppercase">Blog</h5>
+                <h1 class="mb-0">Noticias y novedades del MCCALP</h1>
+            </div>
+            <div class="row justify-content-center mb-4">
+                <div class="col-lg-8 col-md-10">
+                    <div class="d-flex flex-wrap justify-content-center gap-2 mb-4" id="filterButtons">
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="blogContainer">
+            </div>
+        </div>
+    </div>
+
+    <script>
+    var repo = 'mccalpcsjtacna-app/mccalpcsjtacna-app.github.io';
+
+    function parseFrontMatter(text) {
+        var meta = {};
+        var match = text.match(/^---\s*\n([\s\S]*?)\n---\s*\n/);
+        if (match) {
+            var lines = match[1].split('\n');
+            for (var i = 0; i < lines.length; i++) {
+                var colon = lines[i].indexOf(':');
+                if (colon > 0) {
+                    var key = lines[i].substring(0, colon).trim();
+                    var val = lines[i].substring(colon + 1).trim();
+                    if (val.startsWith('"') && val.endsWith('"')) val = val.slice(1, -1);
+                    if (key === 'categories' || key === 'tags') {
+                        val = val.replace(/[\[\]]/g, '').split(',').map(function(s) { return s.trim(); });
+                    }
+                    meta[key] = val;
+                }
+            }
+        }
+        return meta;
+    }
+
+    function loadPosts() {
+        fetch('https://api.github.com/repos/' + repo + '/git/trees/main?recursive=1')
+            .then(function(r) {
+                if (!r.ok) throw new Error('Error al cargar el repositorio');
+                return r.json();
+            })
+            .then(function(tree) {
+                var mdFiles = [];
+                for (var i = 0; i < tree.tree.length; i++) {
+                    var item = tree.tree[i];
+                    if (item.type === 'blob' && item.path.startsWith('assets/noticias/') && item.path.endsWith('.md') && item.path !== 'assets/noticias/.md') {
+                        mdFiles.push(item.path);
+                    }
+                }
+                if (mdFiles.length === 0) {
+                    return [];
+                }
+                var fetches = mdFiles.map(function(f) {
+                    return fetch('https://raw.githubusercontent.com/' + repo + '/main/' + f)
+                        .then(function(r) { return r.text(); })
+                        .then(function(content) {
+                            var meta = parseFrontMatter(content);
+                            return {
+                                file: f,
+                                title: meta.title || 'Sin t&iacute;tulo',
+                                date: meta.date || '2000-01-01',
+                                tipo: meta.tipo || 'General',
+                                image: meta.image || '',
+                                description: meta.description || ''
+                            };
+                        });
+                });
+                return Promise.all(fetches);
+            })
+            .then(function(posts) {
+                posts.sort(function(a, b) { return b.date.localeCompare(a.date); });
+                if (posts.length === 0) {
+                    document.getElementById('blogContainer').innerHTML = '<div class="col-12"><div class="alert alert-info text-center">No hay noticias disponibles.</div></div>';
+                    return;
+                }
+                var tipos = {};
+                for (var i = 0; i < posts.length; i++) {
+                    tipos[posts[i].tipo] = true;
+                }
+                var filterHtml = '<button class="btn btn-primary btn-sm" data-tipo="all" onclick="filterPosts(\'all\')">Todos</button>';
+                var tipoKeys = Object.keys(tipos).sort();
+                for (var j = 0; j < tipoKeys.length; j++) {
+                    filterHtml += '<button class="btn btn-outline-primary btn-sm" data-tipo="' + tipoKeys[j] + '" onclick="filterPosts(\'' + tipoKeys[j] + '\')">' + tipoKeys[j] + '</button>';
+                }
+                document.getElementById('filterButtons').innerHTML = filterHtml;
+                renderPosts(posts);
+                window._allPosts = posts;
+            })
+            .catch(function(err) {
+                document.getElementById('blogContainer').innerHTML = '<div class="col-12"><div class="alert alert-danger text-center">Error al cargar noticias: ' + err.message + '</div></div>';
+            });
+    }
+
+    function renderPosts(posts) {
+        var container = document.getElementById('blogContainer');
+        container.innerHTML = '';
+        for (var i = 0; i < posts.length; i++) {
+            var p = posts[i];
+            var dateObj = new Date(p.date);
+            var months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Setiembre','Octubre','Noviembre','Diciembre'];
+            var dateStr = dateObj.getDate() + ' de ' + months[dateObj.getMonth()] + ', ' + dateObj.getFullYear();
+            var col = document.createElement('div');
+            col.className = 'col-lg-6 col-xl-4 mb-4 post-col';
+            col.setAttribute('data-tipo', p.tipo);
+            var imgSrc = p.image || 'img/blog-placeholder.jpg';
+            if (imgSrc && !imgSrc.startsWith('http') && !imgSrc.startsWith('/') && !imgSrc.startsWith('img/')) imgSrc = 'img/noticias/' + imgSrc;
+            col.innerHTML =
+                '<div class="blog-item bg-light rounded overflow-hidden h-100">' +
+                    '<div class="blog-img position-relative overflow-hidden" style="height:220px">' +
+                        '<img class="img-fluid w-100 h-100" src="' + imgSrc + '" style="object-fit:cover" onerror="this.src=\'img/blog-placeholder.jpg\'" alt="' + p.title.replace(/"/g,'&quot;') + '">' +
+                        '<span class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-3 py-1 px-3 small">' + p.tipo + '</span>' +
+                    '</div>' +
+                    '<div class="p-4 d-flex flex-column">' +
+                        '<div class="d-flex mb-2">' +
+                            '<small class="text-muted"><i class="far fa-calendar-alt text-primary me-2"></i>' + dateStr + '</small>' +
+                        '</div>' +
+                        '<h5 class="mb-3">' + p.title + '</h5>' +
+                        '<p class="text-muted small flex-grow-1">' + p.description + '</p>' +
+                        '<a href="' + p.file + '" class="text-uppercase small fw-bold text-primary" target="_blank">Leer m&aacute;s <i class="bi bi-arrow-right"></i></a>' +
+                    '</div>' +
+                '</div>';
+            container.appendChild(col);
+        }
+    }
+
+    function filterPosts(tipo) {
+        var btns = document.querySelectorAll('#filterButtons .btn');
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].classList.remove('btn-primary');
+            btns[i].classList.add('btn-outline-primary');
+        }
+        var active = document.querySelector('#filterButtons .btn[data-tipo="' + tipo + '"]');
+        if (active) {
+            active.classList.remove('btn-outline-primary');
+            active.classList.add('btn-primary');
+        }
+        var cols = document.querySelectorAll('.post-col');
+        for (var j = 0; j < cols.length; j++) {
+            cols[j].style.display = tipo === 'all' || cols[j].getAttribute('data-tipo') === tipo ? '' : 'none';
+        }
+    }
+
+    loadPosts();
+    </script>
+    <!-- Blog End -->
+
+
+    <div data-include="components/footer.html"></div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <script src="js/include.js"></script>
+</body>
+
+</html>
