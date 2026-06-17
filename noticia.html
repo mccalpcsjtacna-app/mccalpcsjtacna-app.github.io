@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>MCCALP - Módulo Corporativo, Contencioso Administrativo Laboral y Previsional</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/logo-pj.png" rel="icon" type="image/png">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        .noticia-content h2 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--bs-primary); }
+        .noticia-content h3 { font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+        .noticia-content p { margin-bottom: 1rem; line-height: 1.8; text-align: justify; }
+        .noticia-content ul, .noticia-content ol { margin-bottom: 1rem; padding-left: 1.5rem; }
+        .noticia-content li { margin-bottom: 0.5rem; line-height: 1.8; }
+        .noticia-content strong { font-weight: 700; }
+        .noticia-content img { max-width: 100%; height: auto; border-radius: 0.5rem; margin: 1.5rem 0; }
+    </style>
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner"></div>
+    </div>
+    <!-- Spinner End -->
+
+    <div data-include="components/topbar.html"></div>
+
+    <!-- Navbar Start -->
+    <div class="container-fluid position-relative p-0">
+        <div data-include="components/navbar.html"></div>
+
+        <div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px;">
+            <div class="row py-5">
+                <div class="col-12 pt-lg-5 mt-lg-5 text-center">
+                    <h1 class="display-4 text-white animated zoomIn" id="pageTitle">Noticia</h1>
+                    <a href="index.html" class="h5 text-white">Inicio</a>
+                    <i class="far fa-circle text-white px-2"></i>
+                    <a href="blog.html" class="h5 text-white">Blog</a>
+                    <i class="far fa-circle text-white px-2"></i>
+                    <a href="#" class="h5 text-white" id="breadcrumbCurrent">Noticia</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+    <div data-include="components/search-modal.html"></div>
+
+    <!-- Noticia Start -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div id="noticiaLoader" class="text-center py-5">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Cargando...</span>
+                </div>
+                <p class="mt-3 text-muted">Cargando noticia...</p>
+            </div>
+            <div id="noticiaError" class="alert alert-danger text-center d-none"></div>
+            <article id="noticiaArticle" class="d-none">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="mb-4">
+                            <span class="badge bg-primary mb-3" id="noticiaTipo"></span>
+                            <h1 class="display-5 fw-bold mb-3" id="noticiaTitle"></h1>
+                            <div class="d-flex flex-wrap align-items-center text-muted mb-4">
+                                <small class="me-3"><i class="far fa-calendar-alt text-primary me-2"></i><span id="noticiaDate"></span></small>
+                                <small><i class="far fa-user text-primary me-2"></i><span id="noticiaAuthor"></span></small>
+                            </div>
+                        </div>
+                        <div class="mb-4" id="noticiaImageContainer" style="max-height: 400px; overflow: hidden; border-radius: 0.5rem;">
+                            <img id="noticiaImage" class="img-fluid w-100 h-100" style="object-fit: cover;" alt="">
+                        </div>
+                        <div class="noticia-content" id="noticiaContent"></div>
+                        <div class="mt-5">
+                            <a href="blog.html" class="btn btn-primary rounded-pill py-2 px-4"><i class="bi bi-arrow-left me-2"></i>Volver al Blog</a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+    <!-- Noticia End -->
+
+    <div data-include="components/footer.html"></div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@5.1.2/marked.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <script src="js/include.js"></script>
+
+    <script>
+    var repo = 'mccalpcsjtacna-app/mccalpcsjtacna-app.github.io';
+
+    function parseFrontMatter(text) {
+        var meta = {};
+        var match = text.match(/^---\s*\n([\s\S]*?)\n---\s*\n/);
+        if (match) {
+            var lines = match[1].split('\n');
+            for (var i = 0; i < lines.length; i++) {
+                var colon = lines[i].indexOf(':');
+                if (colon > 0) {
+                    var key = lines[i].substring(0, colon).trim();
+                    var val = lines[i].substring(colon + 1).trim();
+                    if (val.startsWith('"') && val.endsWith('"')) val = val.slice(1, -1);
+                    if (key === 'categories' || key === 'tags') {
+                        val = val.replace(/[\[\]]/g, '').split(',').map(function(s) { return s.trim(); });
+                    }
+                    meta[key] = val;
+                }
+            }
+        }
+        return meta;
+    }
+
+    function getUrlParam(name) {
+        var params = new URLSearchParams(window.location.search);
+        return params.get(name);
+    }
+
+    function showError(msg) {
+        document.getElementById('noticiaLoader').classList.add('d-none');
+        var el = document.getElementById('noticiaError');
+        el.textContent = msg;
+        el.classList.remove('d-none');
+    }
+
+    function loadNoticia() {
+        var filePath = getUrlParam('file');
+        if (!filePath) {
+            showError('No se especificó ninguna noticia.');
+            return;
+        }
+        fetch('https://raw.githubusercontent.com/' + repo + '/main/' + filePath)
+            .then(function(r) {
+                if (!r.ok) throw new Error('Error al cargar la noticia');
+                return r.text();
+            })
+            .then(function(content) {
+                var meta = parseFrontMatter(content);
+                var body = content;
+                var fmMatch = content.match(/^---\s*\n[\s\S]*?\n---\s*\n/);
+                if (fmMatch) {
+                    body = content.substring(fmMatch[0].length);
+                }
+                document.getElementById('pageTitle').textContent = meta.title || 'Noticia';
+                document.getElementById('breadcrumbCurrent').textContent = meta.title || 'Noticia';
+                document.getElementById('noticiaTitle').textContent = meta.title || 'Sin título';
+                document.getElementById('noticiaTipo').textContent = meta.tipo || 'General';
+
+                var months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Setiembre','Octubre','Noviembre','Diciembre'];
+                if (meta.date) {
+                    var d = new Date(meta.date);
+                    document.getElementById('noticiaDate').textContent = d.getDate() + ' de ' + months[d.getMonth()] + ', ' + d.getFullYear();
+                }
+                document.getElementById('noticiaAuthor').textContent = meta.author || 'MCCALP';
+
+                var imgEl = document.getElementById('noticiaImage');
+                if (meta.image) {
+                    imgEl.src = meta.image;
+                    imgEl.alt = meta.title || 'Imagen de la noticia';
+                    imgEl.onerror = function() { document.getElementById('noticiaImageContainer').classList.add('d-none'); };
+                } else {
+                    document.getElementById('noticiaImageContainer').classList.add('d-none');
+                }
+
+                document.getElementById('noticiaContent').innerHTML = marked.parse(body);
+                document.getElementById('noticiaLoader').classList.add('d-none');
+                document.getElementById('noticiaArticle').classList.remove('d-none');
+            })
+            .catch(function(err) {
+                showError('Error al cargar la noticia: ' + err.message);
+            });
+    }
+
+    loadNoticia();
+    </script>
+</body>
+
+</html>
