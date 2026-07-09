@@ -37,7 +37,13 @@
         .noticia-content ul, .noticia-content ol { margin-bottom: 1rem; padding-left: 1.5rem; }
         .noticia-content li { margin-bottom: 0.5rem; line-height: 1.8; }
         .noticia-content strong { font-weight: 700; }
-        .noticia-content img { max-width: 100%; max-height: 600px; height: auto; border-radius: 0.5rem; margin: 1.5rem auto; display: block; box-shadow: 0 0.25rem 1rem rgba(0,0,0,0.15); }
+        .noticia-content img:not(.gallery-pinterest img) { max-width: 100%; max-height: 600px; height: auto; border-radius: 0.5rem; margin: 1.5rem auto; display: block; box-shadow: 0 0.25rem 1rem rgba(0,0,0,0.15); }
+        .gallery-pinterest { column-count: 4; column-gap: 1rem; margin: 2rem 0; }
+        .gallery-pinterest .gallery-item { break-inside: avoid; margin-bottom: 1rem; border-radius: 0.5rem; overflow: hidden; box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.15); transition: transform 0.3s ease; }
+        .gallery-pinterest .gallery-item:hover { transform: scale(1.02); }
+        .gallery-pinterest .gallery-item img { width: 100%; height: auto; display: block; border-radius: 0; margin: 0; max-height: none; }
+        @media (max-width: 992px) { .gallery-pinterest { column-count: 3; } }
+        @media (max-width: 576px) { .gallery-pinterest { column-count: 2; } }
     </style>
 </head>
 
