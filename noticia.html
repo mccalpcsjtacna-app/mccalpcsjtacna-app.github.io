@@ -37,7 +37,7 @@
         .noticia-content ul, .noticia-content ol { margin-bottom: 1rem; padding-left: 1.5rem; }
         .noticia-content li { margin-bottom: 0.5rem; line-height: 1.8; }
         .noticia-content strong { font-weight: 700; }
-        .noticia-content img { max-width: 100%; height: auto; border-radius: 0.5rem; margin: 1.5rem 0; }
+        .noticia-content img { max-width: 100%; max-height: 600px; height: auto; border-radius: 0.5rem; margin: 1.5rem auto; display: block; box-shadow: 0 0.25rem 1rem rgba(0,0,0,0.15); }
     </style>
 </head>
 
@@ -92,8 +92,8 @@
                                 <small><i class="far fa-user text-primary me-2"></i><span id="noticiaAuthor"></span></small>
                             </div>
                         </div>
-                        <div class="mb-4" id="noticiaImageContainer" style="max-height: 400px; overflow: hidden; border-radius: 0.5rem;">
-                            <img id="noticiaImage" class="img-fluid w-100 h-100" style="object-fit: cover;" alt="">
+                        <div class="mb-4 d-flex align-items-center justify-content-center" id="noticiaImageContainer" style="max-height: 500px; overflow: hidden; border-radius: 0.5rem; background: #f8f9fa;">
+                            <img id="noticiaImage" class="img-fluid" style="max-height: 500px; width: auto; object-fit: contain;" alt="">
                         </div>
                         <div class="noticia-content" id="noticiaContent"></div>
                         <div class="mt-5">
