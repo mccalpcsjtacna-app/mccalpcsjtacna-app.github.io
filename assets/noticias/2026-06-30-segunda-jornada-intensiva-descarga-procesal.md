@@ -34,12 +34,12 @@ El Módulo Corporativo Contencioso Administrativo Laboral y Previsional reafirma
 ## Panel Fotográfico
 
 <div class="gallery-pinterest">
-  <div class="gallery-item"><img src="/img/noticias/image2.jpeg" alt="Jornada de Descarga Procesal 1" loading="lazy"></div>
-  <div class="gallery-item"><img src="/img/noticias/image3.jpeg" alt="Jornada de Descarga Procesal 2" loading="lazy"></div>
-  <div class="gallery-item"><img src="/img/noticias/image4.jpeg" alt="Jornada de Descarga Procesal 3" loading="lazy"></div>
-  <div class="gallery-item"><img src="/img/noticias/image5.jpeg" alt="Jornada de Descarga Procesal 4" loading="lazy"></div>
-  <div class="gallery-item"><img src="/img/noticias/image6.jpeg" alt="Jornada de Descarga Procesal 5" loading="lazy"></div>
-  <div class="gallery-item"><img src="/img/noticias/image7.jpeg" alt="Jornada de Descarga Procesal 6" loading="lazy"></div>
-  <div class="gallery-item"><img src="/img/noticias/image8.jpeg" alt="Jornada de Descarga Procesal 7" loading="lazy"></div>
-  <div class="gallery-item"><img src="/img/noticias/image9.jpeg" alt="Jornada de Descarga Procesal 8" loading="lazy"></div>
+  <div class="gallery-item"><a data-fancybox="gallery-pinterest" href="/img/noticias/image2.jpeg"><img src="/img/noticias/image2.jpeg" alt="Jornada de Descarga Procesal 1" loading="lazy"></a></div>
+  <div class="gallery-item"><a data-fancybox="gallery-pinterest" href="/img/noticias/image3.jpeg"><img src="/img/noticias/image3.jpeg" alt="Jornada de Descarga Procesal 2" loading="lazy"></a></div>
+  <div class="gallery-item"><a data-fancybox="gallery-pinterest" href="/img/noticias/image4.jpeg"><img src="/img/noticias/image4.jpeg" alt="Jornada de Descarga Procesal 3" loading="lazy"></a></div>
+  <div class="gallery-item"><a data-fancybox="gallery-pinterest" href="/img/noticias/image5.jpeg"><img src="/img/noticias/image5.jpeg" alt="Jornada de Descarga Procesal 4" loading="lazy"></a></div>
+  <div class="gallery-item"><a data-fancybox="gallery-pinterest" href="/img/noticias/image6.jpeg"><img src="/img/noticias/image6.jpeg" alt="Jornada de Descarga Procesal 5" loading="lazy"></a></div>
+  <div class="gallery-item"><a data-fancybox="gallery-pinterest" href="/img/noticias/image7.jpeg"><img src="/img/noticias/image7.jpeg" alt="Jornada de Descarga Procesal 6" loading="lazy"></a></div>
+  <div class="gallery-item"><a data-fancybox="gallery-pinterest" href="/img/noticias/image8.jpeg"><img src="/img/noticias/image8.jpeg" alt="Jornada de Descarga Procesal 7" loading="lazy"></a></div>
+  <div class="gallery-item"><a data-fancybox="gallery-pinterest" href="/img/noticias/image9.jpeg"><img src="/img/noticias/image9.jpeg" alt="Jornada de Descarga Procesal 8" loading="lazy"></a></div>
 </div>

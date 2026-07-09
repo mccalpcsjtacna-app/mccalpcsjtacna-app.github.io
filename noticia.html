@@ -11,6 +11,9 @@
     <!-- Favicon -->
     <link href="img/logo-pj.png" rel="icon" type="image/png">
 
+    <!-- Fancybox -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +44,8 @@
         .gallery-pinterest { column-count: 4; column-gap: 1rem; margin: 2rem 0; }
         .gallery-pinterest .gallery-item { break-inside: avoid; margin-bottom: 1rem; border-radius: 0.5rem; overflow: hidden; box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.15); transition: transform 0.3s ease; }
         .gallery-pinterest .gallery-item:hover { transform: scale(1.02); }
-        .gallery-pinterest .gallery-item img { width: 100%; height: auto; display: block; border-radius: 0; margin: 0; max-height: none; }
+        .gallery-pinterest .gallery-item a { display: block; cursor: zoom-in; }
+        .gallery-pinterest .gallery-item a img { width: 100%; height: auto; display: block; border-radius: 0; margin: 0; max-height: none; }
         @media (max-width: 992px) { .gallery-pinterest { column-count: 3; } }
         @media (max-width: 576px) { .gallery-pinterest { column-count: 2; } }
     </style>
@@ -116,6 +120,7 @@
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/wow/wow.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
