@@ -144,29 +144,6 @@
     <script src="js/include.js"></script>
 
     <script>
-    var repo = 'mccalpcsjtacna-app/mccalpcsjtacna-app.github.io';
-
-    function parseFrontMatter(text) {
-        var meta = {};
-        var match = text.match(/^---\s*\n([\s\S]*?)\n---\s*\n/);
-        if (match) {
-            var lines = match[1].split('\n');
-            for (var i = 0; i < lines.length; i++) {
-                var colon = lines[i].indexOf(':');
-                if (colon > 0) {
-                    var key = lines[i].substring(0, colon).trim();
-                    var val = lines[i].substring(colon + 1).trim();
-                    if (val.startsWith('"') && val.endsWith('"')) val = val.slice(1, -1);
-                    if (key === 'categories' || key === 'tags') {
-                        val = val.replace(/[\[\]]/g, '').split(',').map(function(s) { return s.trim(); });
-                    }
-                    meta[key] = val;
-                }
-            }
-        }
-        return meta;
-    }
-
     function getUrlParam(name) {
         var params = new URLSearchParams(window.location.search);
         return params.get(name);
@@ -185,40 +162,40 @@
             showError('No se especificó ninguna noticia.');
             return;
         }
-        fetch('https://raw.githubusercontent.com/' + repo + '/main/' + filePath)
+        fetch('assets/noticias/index.json')
             .then(function(r) {
-                if (!r.ok) throw new Error('Error al cargar la noticia');
-                return r.text();
+                if (!r.ok) throw new Error('Error al cargar el índice de noticias');
+                return r.json();
             })
-            .then(function(content) {
-                var meta = parseFrontMatter(content);
-                var body = content;
-                var fmMatch = content.match(/^---\s*\n[\s\S]*?\n---\s*\n/);
-                if (fmMatch) {
-                    body = content.substring(fmMatch[0].length);
+            .then(function(posts) {
+                var post = null;
+                for (var i = 0; i < posts.length; i++) {
+                    if (posts[i].file === filePath) { post = posts[i]; break; }
                 }
-                document.getElementById('pageTitle').textContent = meta.title || 'Noticia';
-                document.getElementById('breadcrumbCurrent').textContent = meta.title || 'Noticia';
-                document.getElementById('noticiaTitle').textContent = meta.title || 'Sin título';
-                document.getElementById('noticiaTipo').textContent = meta.tipo || 'General';
+                if (!post) throw new Error('Noticia no encontrada');
+
+                document.getElementById('pageTitle').textContent = post.title || 'Noticia';
+                document.getElementById('breadcrumbCurrent').textContent = post.title || 'Noticia';
+                document.getElementById('noticiaTitle').textContent = post.title || 'Sin título';
+                document.getElementById('noticiaTipo').textContent = post.tipo || 'General';
 
                 var months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Setiembre','Octubre','Noviembre','Diciembre'];
-                if (meta.date) {
-                    var d = new Date(meta.date);
+                if (post.date) {
+                    var d = new Date(post.date);
                     document.getElementById('noticiaDate').textContent = d.getDate() + ' de ' + months[d.getMonth()] + ', ' + d.getFullYear();
                 }
-                document.getElementById('noticiaAuthor').textContent = meta.author || 'MCCALP';
+                document.getElementById('noticiaAuthor').textContent = post.author || 'MCCALP';
 
                 var imgEl = document.getElementById('noticiaImage');
-                if (meta.image) {
-                    imgEl.src = meta.image;
-                    imgEl.alt = meta.title || 'Imagen de la noticia';
+                if (post.image) {
+                    imgEl.src = post.image;
+                    imgEl.alt = post.title || 'Imagen de la noticia';
                     imgEl.onerror = function() { document.getElementById('noticiaImageContainer').classList.add('d-none'); };
                 } else {
                     document.getElementById('noticiaImageContainer').classList.add('d-none');
                 }
 
-                document.getElementById('noticiaContent').innerHTML = marked.parse(body);
+                document.getElementById('noticiaContent').innerHTML = marked.parse(post.body || '');
                 document.getElementById('noticiaLoader').classList.add('d-none');
                 document.getElementById('noticiaArticle').classList.remove('d-none');
             })

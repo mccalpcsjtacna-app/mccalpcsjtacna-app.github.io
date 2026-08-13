@@ -82,62 +82,11 @@
     </div>
 
     <script>
-    var repo = 'mccalpcsjtacna-app/mccalpcsjtacna-app.github.io';
-
-    function parseFrontMatter(text) {
-        var meta = {};
-        var match = text.match(/^---\s*\n([\s\S]*?)\n---\s*\n/);
-        if (match) {
-            var lines = match[1].split('\n');
-            for (var i = 0; i < lines.length; i++) {
-                var colon = lines[i].indexOf(':');
-                if (colon > 0) {
-                    var key = lines[i].substring(0, colon).trim();
-                    var val = lines[i].substring(colon + 1).trim();
-                    if (val.startsWith('"') && val.endsWith('"')) val = val.slice(1, -1);
-                    if (key === 'categories' || key === 'tags') {
-                        val = val.replace(/[\[\]]/g, '').split(',').map(function(s) { return s.trim(); });
-                    }
-                    meta[key] = val;
-                }
-            }
-        }
-        return meta;
-    }
-
     function loadPosts() {
-        fetch('https://api.github.com/repos/' + repo + '/git/trees/main?recursive=1')
+        fetch('assets/noticias/index.json')
             .then(function(r) {
-                if (!r.ok) throw new Error('Error al cargar el repositorio');
+                if (!r.ok) throw new Error('Error al cargar noticias');
                 return r.json();
-            })
-            .then(function(tree) {
-                var mdFiles = [];
-                for (var i = 0; i < tree.tree.length; i++) {
-                    var item = tree.tree[i];
-                    if (item.type === 'blob' && item.path.startsWith('assets/noticias/') && item.path.endsWith('.md') && item.path !== 'assets/noticias/.md') {
-                        mdFiles.push(item.path);
-                    }
-                }
-                if (mdFiles.length === 0) {
-                    return [];
-                }
-                var fetches = mdFiles.map(function(f) {
-                    return fetch('https://raw.githubusercontent.com/' + repo + '/main/' + f)
-                        .then(function(r) { return r.text(); })
-                        .then(function(content) {
-                            var meta = parseFrontMatter(content);
-                            return {
-                                file: f,
-                                title: meta.title || 'Sin t&iacute;tulo',
-                                date: meta.date || '2000-01-01',
-                                tipo: meta.tipo || 'General',
-                                image: meta.image || '',
-                                description: meta.description || ''
-                            };
-                        });
-                });
-                return Promise.all(fetches);
             })
             .then(function(posts) {
                 posts.sort(function(a, b) { return b.date.localeCompare(a.date); });
