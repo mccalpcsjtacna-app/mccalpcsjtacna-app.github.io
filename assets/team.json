@@ -8,10 +8,10 @@
     "social": {}
   },
   {
-    "name": "Dr. Rogelio Alberto Zea Catacora",
+    "name": "Dra. Salinova Ccoyllor Mendoza Castro",
     "role": "Juez del 4° Juzgado Especializado de Trabajo",
     "category": "Juez",
-    "photo": "img/personal/zeav2.png",
+    "photo": "img/personal/img-dama.png",
     "description": "Juez del Cuarto Juzgado Especializado de Trabajo.",
     "social": {}
   },
@@ -30,7 +30,7 @@
     "role": "Secretaria Judicial",
     "category": "Secretarios",
     "photo": "img/personal/img-dama.png",
-    "description": "Sub equipo de la etapa Calificación.",
+    "description": "Sub equipo de la etapa Ejecución.",
     "social": {}
   },
   {
@@ -74,14 +74,6 @@
     "social": {}
   },
   {
-    "name": "Abg. Catherine Aguilar Chuquimia",
-    "role": "Secretaria Judicial",
-    "category": "Secretarios",
-    "photo": "img/personal/img-dama.png",
-    "description": "Sub equipo de la etapa Ejecución.",
-    "social": {}
-  },
-  {
     "name": "Abg. Carlos Mendoza Nuñez",
     "role": "Secretario Judicial",
     "category": "Secretarios",
@@ -94,7 +86,7 @@
     "role": "Secretario Judicial",
     "category": "Secretarios",
     "photo": "img/personal/img-varon.png",
-    "description": "Sub equipo de la etapa Ejecución.",
+    "description": "Sub equipo de la etapa Calificación.",
     "social": {}
   },
   {
@@ -111,6 +103,14 @@
     "category": "Secretarios",
     "photo": "img/personal/img-dama.png",
     "description": "Sub equipo de la etapa Ejecución.",
+    "social": {}
+  },
+  {
+    "name": "Bach. Edgar David Puma Villanueva",
+    "role": "Asistente de Sistemas",
+    "category": "Técnicos",
+    "photo": "img/personal/img-varon.png",
+    "description": "Encargado del Sub Equipo de Soporte Técnico del MCCALP.",
     "social": {}
   },
   {
@@ -178,22 +178,12 @@
     "social": {}
   },
   {
-    "name": "Abg. Diana Joaquin Jinez",
-    "role": "Técnico Administrativo II",
+    "name": "Abg. Viviana Melissa Villalba Chulla",
+    "role": "Asistente Administrativa II",
     "category": "Técnicos",
     "photo": "img/personal/img-dama.png",
     "description": "Asistente administrativo del Área de Administración.",
     "social": {}
-  },
-  {
-    "name": "Bch. Adrian Paria Quispe",
-    "role": "Asistente de Sistemas",
-    "category": "Técnicos",
-    "photo": "img/personal/adrian.jpg",
-    "description": "Encargado del Sub Equipo de Soporte Técnico del MCCALP.",
-    "social": {
-      "linkedin": "https://www.linkedin.com/in/adrian-paria-quispe-621a93336/"
-    }
   },
   {
     "name": "Ing. Mauricio Garcia Mazuelos",
